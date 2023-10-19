@@ -1,7 +1,7 @@
 # Tsukiyomi
 An elegant AwesomeWM configuration focused on beauty. Comes with a carefully crafted UI, three colorschemes, and a couple of variables to tweak the interface to the user's likings. A WIP currently. You can see this repo as a hybrid between dotfiles and an AWM configuration, but it should be modular enough to only pick what you really plan to use.
 
-> _WARNING_: This configuration was not tested on other machines or OS's outside of mine, my code is also not perfect, since this is my first real attempt at AWM, the code may or may not work on your end, some things here need manual tweaking and errors may occur, procceed at your own caution, you've been warned.
+> __WARNING__: This configuration was not tested on other machines or OS's outside of mine, my code is also not perfect, since this is my first real attempt at AWM, the code may or may not work on your end, some things here need manual tweaking and errors may occur, procceed at your own caution, you've been warned.
 
 ---
 
@@ -19,7 +19,7 @@ An elegant AwesomeWM configuration focused on beauty. Comes with a carefully cra
 - `IBM Plex Sans`
 - `Pipewire` and `Wireplumber`
 
-Your suite of apps can be swapped out with relative ease, but if you want to use exactly what i have, you'll need thunar, siduck's build of st, my custom neovim configuration, firefox, and ncmpcpp for a music player.
+Your suite of apps can be swapped out with relative ease, but if you want to use exactly what i have, you'll need thunar, [siduck's build of st](https://github.com/siduck/st), [my custom neovim configuration](https://github.com/tsukki9696/totsuka), firefox, and ncmpcpp for a music player.
 
 ---
 
@@ -57,8 +57,8 @@ And other aspects can also be tweaked outside of user configuration, like keybin
 
 ### Keybinds
 
-`Super + Return` opens a terminal.
-`Super + /` shows the keybinds.
+- `Super + Return` opens a terminal.
+- `Super + /` shows the keybinds.
 
 ---
 
@@ -81,10 +81,13 @@ And other aspects can also be tweaked outside of user configuration, like keybin
 <summary><b>Colorschemes</b></summary>
 
 ### Biscuit
+<img src='assets/biscuit.png'/>
 
 ### Oxocarbon
+<img src='assets/oxocarbon.png'/>
 
 ### Sakura
+<img src='assets/sakura.png'/>
 
 </details>
 
