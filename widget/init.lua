@@ -1,0 +1,5 @@
+require('widget.bar')
+require('widget.titlebar')
+require('widget.notifications')
+require('widget.launcher')
+require('widget.music')
