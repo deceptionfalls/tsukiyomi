@@ -74,6 +74,7 @@ And other aspects can also be tweaked outside of user configuration, like keybin
 - Better keybinds popup
 - Theme switcher
 - Preset colorscheme-matching wallpapers
+- Vertical bar
 - Overall cleanup of code
 
 ---
