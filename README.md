@@ -70,7 +70,6 @@ And other aspects can also be tweaked outside of user configuration, like keybin
 
 - Control center widget
 - Dock widget
-- Bar positioning
 - More complex screenshot signals
 - Better keybinds popup
 - Theme switcher
