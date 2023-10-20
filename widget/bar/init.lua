@@ -34,6 +34,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
         visible = #user.tags > 1,
         widget  = wibox.container.background
     }
+    helpers.hoverCursor(taglist_v)
 
     local taglist = wibox.widget {
           {

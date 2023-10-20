@@ -14,7 +14,7 @@ local battery   = wibox.widget {
   id            = "battery",
   widget        = wibox.widget.progressbar,
   max_value     = 100,
-  forced_width  = 70,
+  forced_width  = user.bar_type == "vertical" and 50 or 70,
   forced_height = 90,
   shape         = user.style == "rounded" and helpers.rrect(30) or gears.shape.rectangle,
 }
@@ -27,11 +27,15 @@ local batstatus = wibox.widget {
         {
           battery,
           {
+            {
             font   = user.font .. "16",
             markup = helpers.colorizeText("󱐋", beautiful.bg_dark),
             widget = wibox.widget.textbox,
             valign = "center",
             align  = "center"
+            },
+            direction = user.bar_type == "vertical" and "east" or "north",
+            widget    = wibox.container.rotate
           },
           layout = wibox.layout.stack
         },

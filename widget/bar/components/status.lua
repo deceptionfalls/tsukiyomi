@@ -57,8 +57,8 @@ return function ()
       },
       left   = dpi(9),
       right  = dpi(9),
-      top    = user.bar_type == "vertical" and dpi(9),
-      bottom = user.bar_type == "vertical" and dpi(9),
+      top    = user.bar_type == "vertical" and dpi(9) or dpi(0),
+      bottom = user.bar_type == "vertical" and dpi(9) or dpi(0),
       widget = wibox.container.margin
     },
     bg = beautiful.bg_normal,
