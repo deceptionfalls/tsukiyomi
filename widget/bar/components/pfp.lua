@@ -15,7 +15,7 @@ return function()
       resize        = true,
       valign        = "center",
       halign        = "center",
-      forced_height = dpi(10),
+      forced_height = user.bar_type == "vertical" and dpi(30) or dpi(10),
   }
 
   helpers.hoverCursor(pfp)

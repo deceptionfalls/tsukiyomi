@@ -43,9 +43,15 @@ local batstatus = wibox.widget {
     },
     layout = wibox.layout.stack
   },
-  bg     = beautiful.bg_dark,
+  bg     = user.transparent_bar == true and beautiful.transparent or user.transparent_bar == true and beautiful.transparent or user.transparent_bar == true and beautiful.transparent or user.transparent_bar == true and beautiful.transparent or user.transparent_bar == true and beautiful.transparent or user.transparent_bar == true and beautiful.transparent or user.transparent_bar == true and beautiful.transparent or user.transparent_bar == true and beautiful.transparent or user.transparent_bar == true and beautiful.transparent or beautiful.bg_dark,
   widget = wibox.container.background,
   shape  = user.style == "rounded" and helpers.rrect(2) or gears.shape.rectangle,
+}
+
+local vbar_batstatus = wibox.widget {
+    batstatus,
+    direction = "east",
+    widget    = wibox.container.rotate
 }
 
 awesome.connect_signal("signal::battery", function(value, state)
@@ -67,4 +73,8 @@ awesome.connect_signal("signal::battery", function(value, state)
   end
 end)
 
-return batstatus
+if user.bar_type == "vertical" then
+  return vbar_batstatus
+else
+  return batstatus
+end

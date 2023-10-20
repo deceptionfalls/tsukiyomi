@@ -4,19 +4,31 @@ local user      = require("user")
 
 ruled.client.connect_signal("request::rules", function()
     ruled.client.append_rule {
-        id         = "global",
-        rule       = { },
-        properties = {
-            focus     = awful.client.focus.filter,
-            raise     = true,
-            screen    = awful.screen.preferred,
-            placement = awful.placement.no_overlap+awful.placement.no_offscreen
-        }
+      id         = "global",
+      rule       = { },
+      properties = {
+          focus     = awful.client.focus.filter,
+          raise     = true,
+          screen    = awful.screen.preferred,
+          placement = awful.placement.no_overlap+awful.placement.no_offscreen
+      }
     }
 
+    if user.desktop_icon == true then
+      ruled.client.append_rule {
+        id          = "desktop",
+        rule_any    = {
+          class   = {
+            "Nemo-desktop"
+          }
+        },
+        properties  = { tag = " ", sticky = true }
+      }
+    end
+
     ruled.client.append_rule {
-        id       = "floating",
-        rule_any = {
+        id        = "floating",
+        rule_any  = {
             instance = { "copyq", "pinentry" },
             class    = {
                 "Arandr", "Blueman-manager", "Gpick", "Kruler", "Sxiv", "Tor Browser", "Wpa_gui", "veromix", "xtightvncviewer", "feh", "qview"

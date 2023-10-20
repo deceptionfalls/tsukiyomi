@@ -9,8 +9,8 @@ return {
       awful.placement.top_left(w, {
         margins = {
           top   = 60,
-          left  = 9,
-          right = 9
+          left  = 10,
+          right = 10
         },
       })
     end,

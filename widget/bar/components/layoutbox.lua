@@ -1,4 +1,5 @@
 local awful = require('awful')
+local user  = require('user')
 
 local function getlayout(s)
     return awful.widget.layoutbox {

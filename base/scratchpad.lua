@@ -1,7 +1,22 @@
 local awful   = require("awful")
+
 local bling   = require("modules.bling")
 local user    = require("user")
 local modkey  = user.modkey
+
+-- function to make the scratchpads centered
+local function center(client)
+    local screen = awful.screen.focused()
+    local screen_geometry = screen.geometry
+
+    local x = (screen_geometry.width - client.geometry.width) / 2
+    local y = (screen_geometry.height - client.geometry.height) / 2
+
+    client.geometry.x = x
+    client.geometry.y = y
+
+    client:toggle()
+end
 
 local spad = bling.module.scratchpad {
     command = "st -c spad -n spad",
@@ -9,7 +24,7 @@ local spad = bling.module.scratchpad {
     sticky = true,
     autoclose = true,
     floating = true,
-    geometry = {x=280, y=120, height=550, width=800},
+    geometry = { height=600, width=800 },
     reapply = true,
     dont_focus_before_close = true,
 }
@@ -20,7 +35,7 @@ local ncmpcpp = bling.module.scratchpad {
     sticky = true,
     autoclose = true,
     floating = true,
-    geometry = {x=280, y=120, height=550, width=800},
+    geometry = { height=600, width=800},
     reapply = true,
     dont_focus_before_close = true,
 }
@@ -31,7 +46,7 @@ local fileman = bling.module.scratchpad {
     sticky = true,
     autoclose = true,
     floating = true,
-    geometry = {x=280, y=120, height=550, width=800},
+    geometry = { height=600, width=800},
     reapply = true,
     dont_focus_before_close = true,
 }
@@ -42,14 +57,14 @@ local vol = bling.module.scratchpad {
     sticky = true,
     autoclose = true,
     floating = true,
-    geometry = {x=280, y=120, height=550, width=800},
+    geometry = { height=600, width=800},
     reapply = true,
     dont_focus_before_close = true,
 }
 
 awful.keyboard.append_global_keybindings({
-    awful.key({ modkey }, "m", function() spad:toggle() end),
-    awful.key({ modkey }, "n", function() ncmpcpp:toggle() end),
-    awful.key({ modkey }, "b", function() fileman:toggle() end),
-    awful.key({ modkey }, "v", function() vol:toggle() end),
+    awful.key({ modkey }, "m", function() center(spad) end),
+    awful.key({ modkey }, "n", function() center(ncmpcpp) end),
+    awful.key({ modkey }, "b", function() center(fileman) end),
+    awful.key({ modkey }, "v", function() center(vol) end),
 })

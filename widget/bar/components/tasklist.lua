@@ -30,7 +30,7 @@ local function gettasklist(s)
         },
         layout= {
             spacing = dpi(user.spacing),
-            layout  = wibox.layout.fixed.horizontal
+            layout  = user.bar_type == "vertical" and wibox.layout.fixed.vertical or wibox.layout.fixed.horizontal
         },
         style = {
             shape = user.style == "rounded" and helpers.rrect(30) or gears.shape.rectangle
@@ -47,6 +47,8 @@ local function gettasklist(s)
             widget  = wibox.container.background
         }
     }
+
+
 end
 
 return gettasklist

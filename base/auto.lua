@@ -7,4 +7,5 @@ else
   awful.spawn.easy_async_with_shell('picom')
 end
 
+if user.desktop_icon == true then awful.spawn.once('nemo-desktop') end
 awful.spawn.once('mpd')

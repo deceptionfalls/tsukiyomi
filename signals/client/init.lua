@@ -8,8 +8,14 @@ client.connect_signal('manage', function(c)
   end
 end)
 
--- Floating windows always on top.
-client.connect_signal('property::floating', function(c) c.ontop = c.floating end)
+-- Makes floating windows always stay on top
+client.connect_signal("property::floating", function(c)
+    if c.floating then
+        c.ontop = true
+    else
+        c.ontop = false
+    end
+end)
 
 -- Send fullscreen windows to the top.
 client.connect_signal('property::fullscreen', function(c) c:raise() end)

@@ -35,8 +35,8 @@ return function ()
     },
     bg     = beautiful.bg_normal,
     shape  = user.style == "rounded" and helpers.rrect(50) or gears.shape.rectangle,
-    forced_height = dpi(70),
-    forced_width  = dpi(32),
+    forced_height = user.bar_type == "vertical" and dpi(30) or dpi(70),
+    forced_width  = user.bar_type == "vertical" and dpi(50) or dpi(32),
     widget = wibox.container.background,
     buttons = {
       awful.button({}, 1, function()

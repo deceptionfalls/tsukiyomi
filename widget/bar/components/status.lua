@@ -45,13 +45,20 @@ return function ()
       {
         bar_btn_sound,
         bar_btn_net,
-        bar_btn_blue,
+        {
+          bar_btn_blue,
+          widget = wibox.widget,
+          layout = user.bar_type == "vertical" and wibox.layout.fixed.vertical or wibox.layout.fixed.horizontal,
+          visible = user.bluetooth_enabled
+        },
         spacing = dpi(user.spacing / 2),
         margins = dpi(10),
-        layout = wibox.layout.fixed.horizontal
+        layout = user.bar_type == "vertical" and wibox.layout.fixed.vertical or wibox.layout.fixed.horizontal
       },
       left   = dpi(9),
       right  = dpi(9),
+      top    = user.bar_type == "vertical" and dpi(9),
+      bottom = user.bar_type == "vertical" and dpi(9),
       widget = wibox.container.margin
     },
     bg = beautiful.bg_normal,

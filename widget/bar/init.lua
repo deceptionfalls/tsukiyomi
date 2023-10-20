@@ -19,36 +19,53 @@ local user        = require('user')
 screen.connect_signal("request::desktop_decoration", function(s)
     awful.tag(user.tags, s, awful.layout.layouts[1])
 
-local taglist = wibox.widget {
-      {
+    if user.desktop_icon == true then
+      awful.tag.add(" ", { screen = s })
+    end
+
+    local taglist_v = wibox.widget {
         {
             tags(s),
             margins = dpi(9),
-            widget  = wibox.container.margin,
+            widget  = wibox.container.margin
         },
-        shape       = user.style == "rounded" and helpers.rrect(50) or gears.shape.rectangle,
-        bg          = beautiful.bg_normal,
-        widget      = wibox.container.background
-      },
-      direction   = "east",
-      widget      = wibox.container.rotate
+        shape   = user.style == "rounded" and helpers.rrect(50) or gears.shape.rectangle,
+        bg      = beautiful.bg_normal,
+        visible = #user.tags > 1,
+        widget  = wibox.container.background
     }
-helpers.hoverCursor(taglist)
+
+    local taglist = wibox.widget {
+          {
+            {
+                tags(s),
+                margins = dpi(9),
+                widget  = wibox.container.margin,
+            },
+            bg          = beautiful.bg_normal,
+            visible     = #user.tags > 1,
+            shape       = user.style == "rounded" and helpers.rrect(50) or gears.shape.rectangle,
+            widget      = wibox.container.background
+          },
+          direction   = "east",
+          widget      = wibox.container.rotate
+        }
+    helpers.hoverCursor(taglist)
 
 -- le bar
  s.wibar    = awful.wibar {
-      position       = "top",
+      position       = user.bar_pos,
       screen         = s,
-      height         = dpi(30),
+      height         = user.bar_type == "vertical" and dpi(750) or dpi(30),
       border_width   = dpi(10),
-      border_color   = beautiful.bg_dark,
-      bg             = beautiful.bg_dark,
+      border_color   = user.transparent_bar == true and beautiful.transparent or beautiful.bg_dark,
+      bg             = user.transparent_bar == true and beautiful.transparent or beautiful.bg_dark,
       widget         = {
         {
           home(s),
-          taglist,
+          user.bar_type == "vertical" and taglist_v or taglist,
           spacing = dpi(user.spacing),
-          layout = wibox.layout.fixed.horizontal
+          layout = user.bar_type == "vertical" and wibox.layout.fixed.vertical or wibox.layout.fixed.horizontal
         },
         {
           tasks(s),
@@ -56,7 +73,12 @@ helpers.hoverCursor(taglist)
           widget = wibox.container.place
         },
         {
-          battery,
+          {
+            battery,
+            widget  = wibox.widget,
+            layout  = wibox.layout.fixed.horizontal,
+            visible = user.battery_enabled
+          },
           status(s),
           clock(s),
           {
@@ -66,17 +88,25 @@ helpers.hoverCursor(taglist)
                 widget  = wibox.container.margin
             },
             bg      = beautiful.bg_normal,
+            visible = #user.layouts > 1,
             shape   = user.style == "rounded" and helpers.rrect(30),
             widget  = wibox.container.background
           },
           pfp(s),
           spacing = dpi(user.spacing),
-          layout  = wibox.layout.fixed.horizontal
+          layout  = user.bar_type == "vertical" and wibox.layout.fixed.vertical or wibox.layout.fixed.horizontal
         },
-        margins = 8,
-        layout  = wibox.layout.align.horizontal,
+        layout  = user.bar_type == "vertical" and wibox.layout.align.vertical or wibox.layout.align.horizontal,
         widget  = wibox.container.margin
       }
     }
 
+    -- apply le outer gaps
+    local screen = awful.screen.focused()
+    screen.padding = {
+        right   = dpi(user.outer_gaps),
+        left    = dpi(user.outer_gaps),
+        bottom  = dpi(user.outer_gaps),
+        top     = dpi(user.outer_gaps)
+    }
 end)

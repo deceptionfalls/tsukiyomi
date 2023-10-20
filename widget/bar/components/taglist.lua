@@ -4,9 +4,10 @@ local awful     = require('awful')
 local wibox     = require('wibox')
 local beautiful = require('beautiful')
 local gears     = require('gears')
-local dpi       = beautiful.xresources.apply_dpi
+
 local helpers   = require('helpers')
 local rubato    = require('modules.rubato')
+local dpi       = beautiful.xresources.apply_dpi
 local user      = require('user')
 
 local function gettaglist(s)
@@ -54,13 +55,25 @@ local function gettaglist(s)
                 self.update = function ()
                     if tag.selected then
                         -- Current tag
-                        self.animate.target = dpi(80)
+                        if user.bar_type == "vertical" then
+                          self.animate.target = dpi(60)
+                        else
+                          self.animate.target = dpi(80)
+                        end
                     elseif #tag:clients() > 0 then
                         -- Occupied tag
-                        self.animate.target = dpi(50)
+                        if user.bar_type == "vertical" then
+                          self.animate.target = dpi(30)
+                        else
+                          self.animate.target = dpi(50)
+                        end
                     else
                         -- Empty tag
-                        self.animate.target = dpi(30)
+                        if user.bar_type == "vertical" then
+                          self.animate.target = dpi(20)
+                        else
+                          self.animate.target = dpi(30)
+                        end
                     end
                 end
 

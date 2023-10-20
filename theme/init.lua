@@ -70,7 +70,7 @@ _T.fg_normal           = color.fg_normal
 _T.transparent         = '#00000000'
 
 -- AWM values
-_T.useless_gap         = dpi(user.gaps)
+_T.useless_gap         = dpi(user.inner_gaps)
 _T.border_width        = dpi(user.border)
 _T.border_color_normal = color.bg_dark
 _T.border_color_active = _T.accent
@@ -97,7 +97,7 @@ _T.taglist_font         = _T.font
 _T.taglist_bg_focus     = _T.accent
 _T.taglist_bg_occupied  = color.mid_dark
 _T.taglist_bg_empty     = color.bg_light
-_T.taglist_bg_urgent    = color.red
+_T.taglist_bg_urgent    = color.yellow
 
 -- Tasklist
 _T.tasklist_bg_focus    = color.bg_light
@@ -120,7 +120,7 @@ _T.snap_border_width    = dpi(4)
 _T.snap_border_radius   = dpi(4)
 _T.snap_bg              = _T.accent
 _T.snap_shape           = helpers.rrect(15)
-_T.snapper_gap          = dpi(user.gaps)
+_T.snapper_gap          = dpi(user.inner_gaps)
 
 -- Systray
 _T.systray_max_rows     = 1
@@ -128,6 +128,6 @@ _T.systray_icon_spacing = dpi(2)
 _T.bg_systray           = color.bg_dark
 
 -- Notifications
-_T.notification_spacing = dpi(user.gaps)
+_T.notification_spacing = dpi(user.outer_gaps)
 
 return _T

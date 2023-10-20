@@ -27,5 +27,38 @@ return function ()
       shape      = user.style == "rounded" and helpers.rrect(50) or gears.shape.rectangle,
       widget     = wibox.container.background
   }
-  return clock
+
+  local vbar_clock = {
+    {
+        {
+            {
+                format = '<b>%H</b>',
+                font   = user.font .. user.fontsize,
+                halign = "center",
+                widget = wibox.widget.textclock
+            },
+            {
+                format = '<b>%M</b>',
+                font   = user.font .. user.fontsize,
+                halign = "center",
+                widget = wibox.widget.textclock
+            },
+            layout  = wibox.layout.fixed.vertical
+        },
+        left     = dpi(2),
+        right    = dpi(2),
+        bottom   = dpi(9),
+        top      = dpi(9),
+        widget  = wibox.container.margin
+    },
+    bg     = beautiful.bg_normal,
+    shape  = user.style == "rounded" and helpers.rrect(50) or gears.shape.rectangle,
+    widget = wibox.container.background
+  }
+
+  if user.bar_type == "vertical" then
+    return vbar_clock
+  else
+    return clock
+  end
 end
