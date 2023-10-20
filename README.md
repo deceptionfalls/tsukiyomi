@@ -32,9 +32,11 @@ Tsukiyomi has a powerful user configuration in which you can tweak things like:
 - Suite of apps
 - Font and icon theme
 - UI elements (gaps, spacing, borders)
+- Toggleable UI elements and signals
 - Accent color
 - Layouts and tags
 - Wallpaper, avatar, home icon
+- Vertical bar
 - Titlebars
 - Modkeys
 
@@ -68,13 +70,11 @@ And other aspects can also be tweaked outside of user configuration, like keybin
 
 - Control center widget
 - Dock widget
-- Toggleable UI elements and signals
 - Bar positioning
 - More complex screenshot signals
 - Better keybinds popup
 - Theme switcher
 - Preset colorscheme-matching wallpapers
-- Vertical bar
 - Overall cleanup of code
 
 ---
