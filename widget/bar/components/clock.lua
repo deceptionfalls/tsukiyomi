@@ -32,7 +32,7 @@ return function ()
     {
         {
             {
-                format = '<b>%H</b>',
+                format = '<b>%I</b>',
                 font   = user.font .. user.fontsize,
                 halign = "center",
                 widget = wibox.widget.textclock

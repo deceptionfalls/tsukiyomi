@@ -3,16 +3,59 @@ local awful     = require("awful")
 local beautiful = require("beautiful")
 local ruled     = require("ruled")
 local wibox     = require("wibox")
-local dpi       = beautiful.xresources.apply_dpi
+
 local helpers   = require("helpers")
 local user      = require("user")
+local dpi       = beautiful.xresources.apply_dpi
+
+-- whole code is from ner0z's dotfiles, i dont really plan to make my own version of this, lmao
+-- https://github.com/ner0z/dotfiles/blob/main/config/awesome/misc/deco.lua
+
+local music_art = wibox.widget {
+    image = gears.filesystem.get_configuration_dir() .. "assets/cookie3.svg",
+    resize = true,
+    widget = wibox.widget.imagebox
+}
+
+local music_art_container = wibox.widget{
+    music_art,
+    shape = helpers.rrect(6),
+    widget = wibox.container.background
+}
+
+local music_now = wibox.widget{
+    font = user.font .. "Bold",
+    valign = "center",
+    widget = wibox.widget.textbox
+}
+
+local music_pos = wibox.widget{
+    font = user.font,
+    valign = "center",
+    widget = wibox.widget.textbox
+}
+
+local music_bar = wibox.widget {
+    max_value = 100,
+    value = 0,
+    background_color = beautiful.bg_dark,
+    color = beautiful.accent,
+    forced_height = dpi(3),
+    widget = wibox.widget.progressbar
+}
+
+music_bar:connect_signal("button::press", function(_, lx, __, button, ___, w)
+    if button == 1 then
+        awful.spawn.with_shell("mpc --host localhost --port 8800 seek " .. math.ceil(lx * 100 / w.width) .. "%")
+    end
+end)
 
 local control_button_bg = beautiful.transparent
-local control_button_bg_hover = beautiful.bg_light
+local control_button_bg_hover = beautiful.bg_dark
 local control_button = function(c, symbol, color, size, on_click, on_right_click)
     local icon = wibox.widget{
         markup = helpers.colorizeText(symbol, color),
-        font = beautiful.font .. "16",
+        font = user.font,
         align = "center",
         valign = "center",
         widget = wibox.widget.textbox()
@@ -21,7 +64,7 @@ local control_button = function(c, symbol, color, size, on_click, on_right_click
     local button = wibox.widget {
         icon,
         bg = control_button_bg,
-        shape = user.style == "rounded" and helpers.rrect(dpi(4)) or gears.shape.rectangle,
+        shape = helpers.rrect(dpi(4)),
         widget = wibox.container.background
     }
 
@@ -48,56 +91,154 @@ local control_button = function(c, symbol, color, size, on_click, on_right_click
 end
 
 local music_play_pause = control_button(c, "󰏤", beautiful.fg_normal, dpi(30), function()
-    awful.spawn.with_shell("mpc --host localhost --port 8800 -q toggle")
+    awful.spawn.with_shell("mpc --player=mpd play-pause")
 end)
 
+-- Loop button
 local loop = control_button(c, "󰑖", beautiful.fg_normal, dpi(30), function()
     awful.spawn.with_shell("mpc --host localhost --port 8800 repeat")
 end)
-
+-- Shuffle playlist
 local shuffle = control_button(c, "󰒝", beautiful.fg_normal, dpi(30), function()
-    awful.spawn.with_shell("mpc --host localhost --port 8800 random")
+    awful.spawn.with_shell("mpc  --host localhost --port 8800 random")
+end)
+
+local music_play_pause_textbox = music_play_pause:get_all_children()[1]:get_all_children()[1]
+local loop_textbox = loop:get_all_children()[1]:get_all_children()[1]
+local shuffle_textbox = shuffle:get_all_children()[1]:get_all_children()[1]
+
+local mpc = require("modules.bling").signal.playerctl.lib()
+local music_length = 0
+
+mpc:connect_signal("metadata", function(_, title, artist, album_path, album, ___, player_name)
+    if player_name == "mpd" then
+        local m_now = title
+
+        music_art:set_image(gears.surface.load_uncached(album_path))
+        music_now:set_markup_silently(m_now)
+    end
+end)
+
+mpc:connect_signal("position", function(_, interval_sec, length_sec, player_name)
+    if player_name == "mpd" then
+        local pos_now = tostring(os.date("!%M:%S", math.floor(interval_sec)))
+        local pos_length = tostring(os.date("!%M:%S", math.floor(length_sec)))
+        local pos_markup = pos_now .. helpers.colorizeText(" / " .. pos_length, beautiful.accent)
+
+        music_art:set_image(gears.surface.load_uncached(album_path))
+        music_pos:set_markup_silently(pos_markup)
+        music_bar.value = (interval_sec / length_sec) * 100
+        music_length = length_sec
+    end
+end)
+
+mpc:connect_signal("playback_status", function(_, playing, player_name)
+    if player_name == "mpd" then
+        if playing then
+            music_play_pause_textbox:set_markup_silently("󰏤")
+        else
+            music_play_pause_textbox:set_markup_silently("󰐊")
+        end
+    end
+end)
+
+mpc:connect_signal("loop_status", function(_, loop_status, player_name)
+    if player_name == "mpd" then
+        if loop_status == "none" then
+            loop_textbox:set_markup_silently("󰑖")
+        else
+            loop_textbox:set_markup_silently("󰑗")
+        end
+    end
+end)
+
+mpc:connect_signal("shuffle", function(_, shuffle, player_name)
+    if player_name == "mpd" then
+        if shuffle then
+            shuffle_textbox:set_markup_silently("󰒝")
+        else
+            shuffle_textbox:set_markup_silently("󰒞")
+        end
+    end
 end)
 
 local music_create_decoration = function (c)
 
+    -- Hide default titlebar
+    awful.titlebar.hide(c, user.titlebar_pos)
+
+    -- Sidebar
+    awful.titlebar(c, { position = "left", size = dpi(200), bg = beautiful.bg_accent }):setup {
+        nil,
+        {
+            music_art_container,
+            bottom = dpi(20),
+            left = dpi(25),
+            right = dpi(25),
+            widget = wibox.container.margin
+        },
+        nil,
+        expand = "none",
+        layout = wibox.layout.align.vertical
+    }
+
     -- Toolbar
-    awful.titlebar(c, { position = "bottom", size = dpi(60), bg = beautiful.bg_normal }):setup {
+    awful.titlebar(c, { position = "bottom", size = dpi(63), bg = beautiful.bg_normal }):setup {
+        music_bar,
         {
             {
                 {
                     -- Go to playlist and focus currently playing song
                     control_button(c, "󰒮", beautiful.fg_normal, dpi(30), function()
-                        awful.spawn.with_shell("mpc --host localhost --port 8800 -q prev")
+                        awful.spawn.with_shell("mpc --host localhost --port 8800 prev")
                     end),
                     -- Toggle play pause
                     music_play_pause,
                     -- Go to list of playlists
                     control_button(c, "󰒭", beautiful.fg_normal, dpi(30), function()
-                        awful.spawn.with_shell("mpc --host localhost --port 8800 -q next")
+                        awful.spawn.with_shell("mpc --host localhost --port 8800 next")
                     end),
                     layout = wibox.layout.flex.horizontal
                 },
-                nil,
                 {
-                    loop,
-                    shuffle,
+                    {
+                        step_function = wibox.container.scroll
+                            .step_functions
+                            .waiting_nonlinear_back_and_forth,
+                        speed = 50,
+                        {
+                            widget = music_now,
+                        },
+                        -- forced_width = dpi(110),
+                        widget = wibox.container.scroll.horizontal
+                    },
+                    left = dpi(20),
+                    right = dpi(20),
+                    widget = wibox.container.margin
+                },
+                {
+                    music_pos,
+                    {
+                        loop,
+                        shuffle,
+                        layout = wibox.layout.flex.horizontal
+                    },
                     spacing = dpi(10),
                     layout = wibox.layout.fixed.horizontal
                 },
                 layout = wibox.layout.align.horizontal
             },
-            top     = dpi(20),
-            bottom  = dpi(20),
-            left    = dpi(20),
-            right   = dpi(20),
+            top     = dpi(15),
+            bottom  = dpi(15),
+            left    = dpi(25),
+            right   = dpi(25),
             widget  = wibox.container.margin
         },
         layout = wibox.layout.align.vertical
     }
 
     -- Set custom decoration flags
-    c.custom_decoration = { bottom = true }
+    c.custom_decoration = { left = true, bottom = true }
 end
 
 -- Add the titlebar whenever a new music client is spawned

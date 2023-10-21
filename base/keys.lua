@@ -178,6 +178,13 @@ awful.keyboard.append_global_keybindings({
       { description = "Spawn chatapp", group = "Apps" }
     ),
 
+    awful.key(
+      { modkey }, "s", function ()
+        awful.spawn("steam")
+      end,
+      { description = "Spawn chatapp", group = "Apps" }
+    ),
+
     -- Screenshot
     -- requires 'maim', 'slop', 'xclip-git'
     awful.key(

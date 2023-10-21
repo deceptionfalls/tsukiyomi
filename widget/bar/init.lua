@@ -93,7 +93,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
             shape   = user.style == "rounded" and helpers.rrect(30),
             widget  = wibox.container.background
           },
-          pfp(s),
+          -- pfp(s),
           spacing = dpi(user.spacing),
           layout  = user.bar_type == "vertical" and wibox.layout.fixed.vertical or wibox.layout.fixed.horizontal
         },

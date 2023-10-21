@@ -24,7 +24,7 @@ local spad = bling.module.scratchpad {
     sticky = true,
     autoclose = true,
     floating = true,
-    geometry = { height=600, width=800 },
+    geometry = { height=500, width=800 },
     reapply = true,
     dont_focus_before_close = true,
 }
@@ -35,7 +35,7 @@ local ncmpcpp = bling.module.scratchpad {
     sticky = true,
     autoclose = true,
     floating = true,
-    geometry = { height=600, width=800},
+    geometry = { height=500, width=800},
     reapply = true,
     dont_focus_before_close = true,
 }
@@ -46,7 +46,7 @@ local fileman = bling.module.scratchpad {
     sticky = true,
     autoclose = true,
     floating = true,
-    geometry = { height=600, width=800},
+    geometry = { height=500, width=800},
     reapply = true,
     dont_focus_before_close = true,
 }
@@ -57,7 +57,7 @@ local vol = bling.module.scratchpad {
     sticky = true,
     autoclose = true,
     floating = true,
-    geometry = { height=600, width=800},
+    geometry = { height=500, width=800},
     reapply = true,
     dont_focus_before_close = true,
 }

@@ -5,15 +5,6 @@ local helpers   = require("helpers")
 local user      = require('user')
 
 return {
-    placement = function(w)
-      awful.placement.top_left(w, {
-        margins = {
-          top   = 60,
-          left  = 10,
-          right = 10
-        },
-      })
-    end,
 
     shape                       = user.style == "rounded" and helpers.rrect(10),
 

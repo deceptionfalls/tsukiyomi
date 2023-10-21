@@ -85,7 +85,8 @@ function helpers.hoverCursor(w, cursorType)
   w:connect_signal('mouse::leave', leaveCb)
 end
 
-helpers.inTable      = function(t, v)
+-- i forgot what this does
+helpers.inTable = function(t, v)
   for _, value in ipairs(t) do
     if value == v then
       return true

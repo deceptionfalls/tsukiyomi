@@ -88,12 +88,12 @@ _U.titlebar     = false
 
 -- Available colorschemes:
 -- biscuit_dark, sakura, oxocarbon
-_U.colorscheme  = "oxocarbon"
+_U.colorscheme  = "biscuit_dark"
 
 -- Dictates color of homeicon, active tag, active border, etc.
 -- Available accent colors:
 -- red, orange, yellow, green, cyan, lightblue, blue, magenta, purple
-_U.accent       = "red"
+_U.accent       = "yellow"
 
 -- Available icons:
 -- cookie, cookie_small, moon
@@ -115,6 +115,6 @@ _U.icon_theme   = "Papirus"
 
 -- Image related
 _U.avatar       = home .. '/Downloads/pfp.png'
-_U.wallpaper    = home .. '/Downloads/gojo_dither.png'
+_U.wallpaper    = home .. '/Downloads/pexels-charles-parker-5845547_biscuit-dark_hald8_GaussianRBF_lum1_shape96_near16.png'
 
 return _U
