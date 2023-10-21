@@ -14,7 +14,7 @@ An elegant AwesomeWM configuration focused on beauty. Comes with a carefully cra
 - [bling](https://blingcorp.github.io/bling/)
 
 - `picom`
-- `mpd`, `mpc`
+- `mpd`, `mpc`, `playerctl` and `mpDris2`
 - `bluez`
 - `maim`, `xclip`, `slop`
 
