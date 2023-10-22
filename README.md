@@ -1,5 +1,6 @@
 # Tsukiyomi
-![image](https://github.com/tsukki9696/tsukiyomi/assets/127806743/a5bbdc84-d1d1-44b9-ae53-1520ae455017)
+![image](https://github.com/tsukki9696/tsukiyomi/assets/127806743/08635337-4faf-41b3-80ad-39a438dfdd43)
+![image](https://github.com/tsukki9696/tsukiyomi/assets/127806743/10c494fb-2d4b-48ea-bb34-a88a3330aaee)
 
 An elegant AwesomeWM configuration focused on beauty. Comes with a carefully crafted UI, three colorschemes, and a couple of variables to tweak the interface to the user's likings. A WIP currently. You can see this repo as a hybrid between dotfiles and an AWM configuration, but it should be modular enough to only pick what you really plan to use.
 
