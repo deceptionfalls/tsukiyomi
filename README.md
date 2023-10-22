@@ -11,13 +11,14 @@ An elegant AwesomeWM configuration focused on beauty. Comes with a carefully cra
 ### Dependencies
 
 - [awesome-git](https://github.com/awesomeWM/awesome)
-- [rubato](https://github.com/andOrlando/rubato)
-- [bling](https://blingcorp.github.io/bling/)
+- [rubato](https://github.com/andOrlando/rubato) (animations library)
+- [bling](https://blingcorp.github.io/bling/) (scratchpads and launcher)
 
-- `picom`
-- `mpd`, `mpc`, `playerctl` and `mpDris2`
-- `bluez`
-- `maim`, `xclip`, `slop`
+- `picom` (rounded corners)
+- `mpd`, `mpc`, `playerctl` and `mpDris2` (music control)
+- `ncmpcpp` (music widget)
+- `bluez` (bluetooth signals, optional)
+- `maim`, `xclip`, `slop` (screenshots)
 
 - `IBM Plex Sans`
 - `Pipewire` and `Wireplumber`
