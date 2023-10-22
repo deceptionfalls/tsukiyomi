@@ -33,11 +33,12 @@ return function ()
       align  = "center",
       widget = wibox.container.place
     },
-    bg     = beautiful.bg_normal,
-    shape  = user.style == "rounded" and helpers.rrect(50) or gears.shape.rectangle,
+    bg      = beautiful.bg_normal,
+    visible = user.homeicon_vis,
+    shape   = user.style == "rounded" and helpers.rrect(50) or gears.shape.rectangle,
     forced_height = user.bar_type == "vertical" and dpi(30) or dpi(70),
     forced_width  = user.bar_type == "vertical" and dpi(50) or dpi(32),
-    widget = wibox.container.background,
+    widget  = wibox.container.background,
     buttons = {
       awful.button({}, 1, function()
         local app_launcher = bling.widget.app_launcher(launcher)

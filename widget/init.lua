@@ -1,5 +1,14 @@
+local user = require('user')
+
 require('widget.bar')
 require('widget.titlebar')
 require('widget.notifications')
 require('widget.launcher')
-require('widget.music')
+
+if user.dock_enabled == true then
+  require('widget.dock')
+end
+
+if user.music_enabled == true then
+  require('widget.music')
+end

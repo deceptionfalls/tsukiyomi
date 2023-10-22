@@ -19,7 +19,7 @@ local function center(client)
 end
 
 local spad = bling.module.scratchpad {
-    command = "st -c spad -n spad",
+    command = user.term_cmd .. "spad -n spad",
     rule = { instance = "spad" },
     sticky = true,
     autoclose = true,
@@ -30,7 +30,7 @@ local spad = bling.module.scratchpad {
 }
 
 local ncmpcpp = bling.module.scratchpad {
-    command = "st -c ncmpcpp -n ncmpcpp -e ncmpcpp",
+    command = user.term_cmd .. "ncmpcpp -e ncmpcpp",
     rule = { instance = "ncmpcpp" },
     sticky = true,
     autoclose = true,
@@ -41,19 +41,8 @@ local ncmpcpp = bling.module.scratchpad {
 }
 
 local fileman = bling.module.scratchpad {
-    command = "st -c fileman -n fileman -e " .. user.files_cli,
+    command = user.term_cmd .. "fileman -n fileman -e " .. user.files_cli,
     rule = { instance = "fileman" },
-    sticky = true,
-    autoclose = true,
-    floating = true,
-    geometry = { height=500, width=800},
-    reapply = true,
-    dont_focus_before_close = true,
-}
-
-local vol = bling.module.scratchpad {
-    command = "st -c vol -n vol -e " .. user.vol_cli,
-    rule = { instance = "vol" },
     sticky = true,
     autoclose = true,
     floating = true,
@@ -66,5 +55,4 @@ awful.keyboard.append_global_keybindings({
     awful.key({ modkey }, "m", function() center(spad) end),
     awful.key({ modkey }, "n", function() center(ncmpcpp) end),
     awful.key({ modkey }, "b", function() center(fileman) end),
-    awful.key({ modkey }, "v", function() center(vol) end),
 })

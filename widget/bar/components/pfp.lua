@@ -15,6 +15,7 @@ return function()
       resize        = true,
       valign        = "center",
       halign        = "center",
+      visible       = user.pfp_vis,
       forced_height = user.bar_type == "vertical" and dpi(30) or dpi(10),
   }
 

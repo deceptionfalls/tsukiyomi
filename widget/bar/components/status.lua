@@ -47,13 +47,13 @@ return function ()
         bar_btn_net,
         {
           bar_btn_blue,
-          widget = wibox.widget,
-          layout = user.bar_type == "vertical" and wibox.layout.fixed.vertical or wibox.layout.fixed.horizontal,
+          widget  = wibox.widget,
+          layout  = user.bar_type == "vertical" and wibox.layout.fixed.vertical or wibox.layout.fixed.horizontal,
           visible = user.bluetooth_enabled
         },
         spacing = dpi(user.spacing / 2),
         margins = dpi(10),
-        layout = user.bar_type == "vertical" and wibox.layout.fixed.vertical or wibox.layout.fixed.horizontal
+        layout  = user.bar_type == "vertical" and wibox.layout.fixed.vertical or wibox.layout.fixed.horizontal
       },
       left   = dpi(9),
       right  = dpi(9),
@@ -61,9 +61,10 @@ return function ()
       bottom = user.bar_type == "vertical" and dpi(9) or dpi(0),
       widget = wibox.container.margin
     },
-    bg = beautiful.bg_normal,
-    shape = user.style == "rounded" and helpers.rrect(30) or gears.shape.rectangle,
-    widget = wibox.container.background
+    visible  = user.status_vis,
+    bg       = beautiful.bg_normal,
+    shape    = user.style == "rounded" and helpers.rrect(30) or gears.shape.rectangle,
+    widget   = wibox.container.background
   }
 
   -- Sound signal

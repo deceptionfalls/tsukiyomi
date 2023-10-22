@@ -21,11 +21,11 @@ local createButton = function(c, fn)
     }
 
     c:connect_signal("focus", function()
-      btn.bg = beautiful.mid_normal
+      btn.bg = beautiful.bg_normal
     end)
 
     c:connect_signal("unfocus", function()
-      btn.bg = beautiful.bg_light  -- Reset the button's background color when unfocused
+      btn.bg = beautiful.bg_dark -- Reset the button's background color when unfocused
     end)
 
     return btn

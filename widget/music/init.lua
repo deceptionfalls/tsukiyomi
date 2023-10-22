@@ -51,12 +51,13 @@ music_bar:connect_signal("button::press", function(_, lx, __, button, ___, w)
 end)
 
 local control_button_bg = beautiful.transparent
-local control_button_bg_hover = beautiful.bg_dark
+local control_button_bg_hover = beautiful.bg_normal
+
 local control_button = function(c, symbol, color, size, on_click, on_right_click)
     local icon = wibox.widget{
         markup = helpers.colorizeText(symbol, color),
-        font = user.font,
-        align = "center",
+        font   = user.font,
+        align  = "center",
         valign = "center",
         widget = wibox.widget.textbox()
     }
@@ -91,7 +92,7 @@ local control_button = function(c, symbol, color, size, on_click, on_right_click
 end
 
 local music_play_pause = control_button(c, "󰏤", beautiful.fg_normal, dpi(30), function()
-    awful.spawn.with_shell("mpc --player=mpd play-pause")
+    awful.spawn.with_shell("mpc --host localhost --port 8800 toggle")
 end)
 
 -- Loop button
@@ -112,7 +113,7 @@ local music_length = 0
 
 mpc:connect_signal("metadata", function(_, title, artist, album_path, album, ___, player_name)
     if player_name == "mpd" then
-        local m_now = title
+        local m_now = title .. " - " .. artist
 
         music_art:set_image(gears.surface.load_uncached(album_path))
         music_now:set_markup_silently(m_now)
@@ -145,9 +146,9 @@ end)
 mpc:connect_signal("loop_status", function(_, loop_status, player_name)
     if player_name == "mpd" then
         if loop_status == "none" then
-            loop_textbox:set_markup_silently("󰑖")
-        else
             loop_textbox:set_markup_silently("󰑗")
+        else
+            loop_textbox:set_markup_silently("󰑖")
         end
     end
 end)
@@ -168,14 +169,13 @@ local music_create_decoration = function (c)
     awful.titlebar.hide(c, user.titlebar_pos)
 
     -- Sidebar
-    awful.titlebar(c, { position = "left", size = dpi(200), bg = beautiful.bg_accent }):setup {
+    awful.titlebar(c, { position = "left", size = dpi(250), bg = beautiful.bg_normal }):setup {
         nil,
         {
             music_art_container,
-            bottom = dpi(20),
-            left = dpi(25),
-            right = dpi(25),
-            widget = wibox.container.margin
+            left    = dpi(15),
+            right   = dpi(15),
+            widget  = wibox.container.margin
         },
         nil,
         expand = "none",
@@ -183,7 +183,7 @@ local music_create_decoration = function (c)
     }
 
     -- Toolbar
-    awful.titlebar(c, { position = "bottom", size = dpi(63), bg = beautiful.bg_normal }):setup {
+    awful.titlebar(c, { position = "bottom", size = dpi(63), bg = beautiful.bg_light }):setup {
         music_bar,
         {
             {
@@ -209,7 +209,6 @@ local music_create_decoration = function (c)
                         {
                             widget = music_now,
                         },
-                        -- forced_width = dpi(110),
                         widget = wibox.container.scroll.horizontal
                     },
                     left = dpi(20),
@@ -218,11 +217,6 @@ local music_create_decoration = function (c)
                 },
                 {
                     music_pos,
-                    {
-                        loop,
-                        shuffle,
-                        layout = wibox.layout.flex.horizontal
-                    },
                     spacing = dpi(10),
                     layout = wibox.layout.fixed.horizontal
                 },

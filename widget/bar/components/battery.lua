@@ -47,9 +47,10 @@ local batstatus = wibox.widget {
     },
     layout = wibox.layout.stack
   },
-  bg     = user.transparent_bar == true and beautiful.transparent or user.transparent_bar == true and beautiful.transparent or user.transparent_bar == true and beautiful.transparent or user.transparent_bar == true and beautiful.transparent or user.transparent_bar == true and beautiful.transparent or user.transparent_bar == true and beautiful.transparent or user.transparent_bar == true and beautiful.transparent or user.transparent_bar == true and beautiful.transparent or user.transparent_bar == true and beautiful.transparent or beautiful.bg_dark,
-  widget = wibox.container.background,
-  shape  = user.style == "rounded" and helpers.rrect(2) or gears.shape.rectangle,
+  visible = user.battery_vis,
+  bg      = user.transparent_bar == true and beautiful.transparent or user.transparent_bar == true and beautiful.transparent or user.transparent_bar == true and beautiful.transparent or user.transparent_bar == true and beautiful.transparent or user.transparent_bar == true and beautiful.transparent or user.transparent_bar == true and beautiful.transparent or user.transparent_bar == true and beautiful.transparent or user.transparent_bar == true and beautiful.transparent or user.transparent_bar == true and beautiful.transparent or beautiful.bg_dark,
+  widget  = wibox.container.background,
+  shape   = user.style == "rounded" and helpers.rrect(2) or gears.shape.rectangle,
 }
 
 local vbar_batstatus = wibox.widget {

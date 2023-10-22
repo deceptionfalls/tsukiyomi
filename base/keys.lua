@@ -180,9 +180,9 @@ awful.keyboard.append_global_keybindings({
 
     awful.key(
       { modkey }, "s", function ()
-        awful.spawn("steam")
+        awful.spawn.with_shell("steam-native")
       end,
-      { description = "Spawn chatapp", group = "Apps" }
+      { description = "Spawn steam", group = "Apps" }
     ),
 
     -- Screenshot
@@ -201,42 +201,26 @@ awful.keyboard.append_global_keybindings({
       { description = "Screenshot selection", group = "Screenshot" }
     ),
 
-    -- Music Control
-    -- TODO: make some fire music signals
-    awful.key(
-      { modkey }, "u", function ()
-        awful.spawn.with_shell("mpc -h localhost -p 8800 prev")
-      end,
-      { description = "Previous song", group = "Music" }
-    ),
-
-    awful.key(
-      { modkey }, "i", function ()
-        awful.spawn.with_shell("mpc -h localhost -p 8800 toggle")
-      end,
-      { description = "Toggle playback", group = "Music" }
-    ),
-
-    awful.key(
-      { modkey }, "o", function ()
-        awful.spawn.with_shell("mpc -h localhost -p 8800 next")
-      end,
-      { description = "Next song", group = "Music" }
-    ),
-
     -- Volume
     awful.key(
-      { modkey }, "r", function ()
+      { nil }, "XF86AudioLowerVolume", function ()
         awful.spawn.with_shell("pulsemixer --change-volume -10")
       end,
       { description = "Raise volume", group = "Volume" }
     ),
 
     awful.key(
-      { modkey }, "t", function ()
+      { nil }, "XF86AudioRaiseVolume", function ()
         awful.spawn.with_shell("pulsemixer --change-volume +10")
       end,
       { description = "Decrease volume", group = "Volume" }
+    ),
+
+        awful.key(
+      { nil }, "XF86AudioMute", function ()
+        awful.spawn.with_shell("pulsemixer --toggle-mute")
+      end,
+      { description = "Mute volume", group = "Volume" }
     ),
 
     awful.key(
@@ -246,6 +230,33 @@ awful.keyboard.append_global_keybindings({
       { description = "Toggle bar on/off", group = "Awesome" }
     )
 })
+
+-- Music related keybinds, will only be added if music is enabled
+if user.music_enabled == true then
+  awful.keyboard.append_global_keybindings({
+      -- Music Control
+      awful.key(
+        { modkey }, "u", function ()
+          awful.spawn.with_shell(user.mpc_command .. "prev")
+        end,
+        { description = "Previous song", group = "Music" }
+      ),
+
+      awful.key(
+        { modkey }, "i", function ()
+          awful.spawn.with_shell(user.mpc_command .. "toggle")
+        end,
+        { description = "Toggle playback", group = "Music" }
+      ),
+
+      awful.key(
+        { modkey }, "o", function ()
+          awful.spawn.with_shell(user.mpc_command .. "next")
+        end,
+        { description = "Next song", group = "Music" }
+      ),
+  })
+end
 
 client.connect_signal("request::default_keybindings", function()
     awful.keyboard.append_client_keybindings({
@@ -288,7 +299,7 @@ awful.keyboard.append_global_keybindings({
         modifiers   = { modkey },
         keygroup    = "numrow",
         description = "only view tag",
-        group       = "tag",
+        group       = "Tags",
         on_press    = function (index)
             local screen = awful.screen.focused()
             local tag = screen.tags[index]
@@ -301,7 +312,7 @@ awful.keyboard.append_global_keybindings({
         modifiers = { modkey, "Shift" },
         keygroup    = "numrow",
         description = "move focused client to tag",
-        group       = "tag",
+        group       = "Tags",
         on_press    = function (index)
             if client.focus then
                 local tag = client.focus.screen.tags[index]
@@ -328,6 +339,8 @@ awful.mouse.append_client_mousebindings({
         c:activate { context = "mouse_click" }
     end),
     awful.button({ modkey }, 1, function (c)
+        c.floating = not c.floating
+        c:raise()
         c:activate { context = "mouse_click", action = "mouse_move"  }
     end),
     awful.button({ modkey }, 3, function (c)
