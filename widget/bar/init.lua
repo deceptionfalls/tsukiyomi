@@ -66,14 +66,12 @@ screen.connect_signal("request::desktop_decoration", function(s)
         {
           home(s),
           user.bar_type == "vertical" and taglist_v or taglist,
+          tasks(s),
           spacing = dpi(user.spacing),
           layout = user.bar_type == "vertical" and wibox.layout.fixed.vertical or wibox.layout.fixed.horizontal
         },
-        {
-          tasks(s),
-          align  = "center",
-          widget = wibox.container.place
-        },
+        nil,
+        expand = "none",
         {
           {
             battery,

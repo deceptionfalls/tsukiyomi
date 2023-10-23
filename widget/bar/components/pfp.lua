@@ -17,6 +17,7 @@ return function()
       halign        = "center",
       visible       = user.pfp_vis,
       forced_height = user.bar_type == "vertical" and dpi(30) or dpi(10),
+      spacing       = user.spacing
   }
 
   helpers.hoverCursor(pfp)

@@ -115,7 +115,7 @@ end
     layout  = layout
   }
 
-  -- indicators, idea from crylia
+  -- Window state indicators
   local createDockIndicators = function(data)
     local clients = data.clients
     local indicators = wibox.widget { layout = flexlayout, spacing = dpi(2) }
@@ -136,20 +136,6 @@ end
         bac = beautiful.bg_normal
         click = function()
           v.minimized = false
-          v = client.focus
-        end
-
-      elseif v.maximized then
-        bac = beautiful.blue
-        click = function()
-          v.maximized = false
-          v = client.focus
-        end
-
-      elseif v.fullscreen then
-        bac = beautiful.cyan
-        click = function()
-          v.fullscreen = false
           v = client.focus
         end
 
@@ -200,7 +186,7 @@ end
     local class     = string.lower(data.class)
     local command   = string.lower(data.class)
 
-    -- use this to define icons and commands for stuff that dont have icons available :despair:
+    -- 
     local customIcons = {
       {
         name        = "st",
@@ -216,6 +202,11 @@ end
         name        = "steam",
         convert     = "steam",
         command     = "steam-native"
+      },
+      {
+        name        = "ncmpcpp",
+        convert     = "spotify",
+        command     = user.term_cmd .. "ncmpcpp -e ncmpcpp"
       },
     }
 
@@ -304,9 +295,16 @@ end
         clients = {},
         class   = "steam"
       },
+      {
+        count   = 0,
+        id      = 7,
+        name    = "zathura",
+        clients = {},
+        class   = "zathura"
+      },
     }
 
-    local classes = { "st", "discord", "firefox", "nemo", "neovim", "steam" }
+    local classes = { "st", "discord", "firefox", "nemo", "neovim", "steam", "zathura" }
     local dockElements = wibox.widget { layout = layout, spacing = user.spacing }
 
     -- generating the data

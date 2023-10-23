@@ -131,7 +131,7 @@ _U.spacing      = 8
 
 -- Inner and outer gaps
 _U.inner_gaps   = 5
-_U.outer_gaps   = 10
+_U.outer_gaps   = 15
 
 -- UI Style
 ---------------------------------------------
@@ -145,17 +145,17 @@ _U.style        = "rounded"
 ---------------------------------------------
 
 -- Available colorschemes:
--- biscuit_dark, sakura, oxocarbon, vscode
-_U.colorscheme  = "oxocarbon"
+-- biscuit_dark, sakura, oxocarbon, camellia
+_U.colorscheme  = "camellia"
 
 -- Dictates color of homeicon, active tag, active border, etc.
 -- Available accent colors:
 -- red, orange, yellow, green, cyan, lightblue, blue, magenta, purple
-_U.accent       = "purple"
+_U.accent       = "red"
 
 -- Available icons:
 -- cookie, cookie_small, moon
-_U.icon         = "moon"
+_U.icon         = "cookie_small"
 
 -- TODO: add more icons that follow this rule
 -- Style for the home icon:
@@ -172,7 +172,7 @@ _U.fontsize     = "11"
 _U.icon_theme   = home .. "/.icons/Reversal"
 
 -- Image related
-_U.avatar       = home .. '/Pictures/Anime/power/f8ccfaf0f37d57ed88ec9f558f8b0aba.jpg'
-_U.wallpaper    = home .. '/Downloads/gojo_dither.png'
+_U.avatar       = home .. '/Pictures/Anime/makima/28312dca326645ebfaa677c36d7939d4.jpg'
+_U.wallpaper    = home .. '/Downloads/maqima.png'
 
 return _U

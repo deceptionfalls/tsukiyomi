@@ -27,7 +27,7 @@ return {
 
     apps_margin                 = dpi(7),
     app_width                   = dpi(300),
-    app_height                  = dpi(35),
+    app_height                  = dpi(30),
 
     app_name_halign             = "left",
     app_name_valign             = "center",
