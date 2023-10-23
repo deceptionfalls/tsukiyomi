@@ -38,6 +38,7 @@ Tsukiyomi has a powerful user configuration in which you can tweak things like:
 - Accent color
 - Layouts and tags
 - Wallpaper, avatar, home icon
+- Dock widget
 - Vertical bar
 - Titlebars
 - Modkeys
@@ -71,7 +72,6 @@ And other aspects can also be tweaked outside of user configuration, like keybin
 ### TODO
 
 - Control center widget
-- Dock widget
 - More complex screenshot signals
 - Better keybinds popup
 - Theme switcher
