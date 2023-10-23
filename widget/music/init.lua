@@ -86,7 +86,7 @@ local control_button = function(c, symbol, color, size, on_click, on_right_click
 end
 
 local music_play_pause = control_button(c, "󰏤", beautiful.fg_normal, dpi(30), function()
-    awful.spawn.with_shell("playerctl --all-players play-pause")
+    awful.spawn.with_shell("playerctl --player=mpd play-pause")
 end)
 
 local music_play_pause_textbox = music_play_pause:get_all_children()[1]:get_all_children()[1]
@@ -153,13 +153,13 @@ local music_create_decoration = function (c)
                 {
                     -- Go to playlist and focus currently playing song
                     control_button(c, "󰒮", beautiful.fg_normal, dpi(30), function()
-                        awful.spawn.with_shell("playerctl --all-players previous")
+                        awful.spawn.with_shell("playerctl --player=mpd previous")
                     end),
                     -- Toggle play pause
                     music_play_pause,
                     -- Go to list of playlists
                     control_button(c, "󰒭", beautiful.fg_normal, dpi(30), function()
-                        awful.spawn.with_shell("playerctl --all-players next")
+                        awful.spawn.with_shell("playerctl --player=mpd next")
                     end),
                     layout = wibox.layout.flex.horizontal
                 },

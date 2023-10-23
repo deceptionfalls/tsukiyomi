@@ -237,21 +237,21 @@ if user.music_enabled == true then
       -- Music Control
       awful.key(
         { modkey }, "u", function ()
-          awful.spawn.with_shell("playerctl --all-players previous")
+          awful.spawn.with_shell("playerctl --player=mpd previous")
         end,
         { description = "Previous song", group = "Music" }
       ),
 
       awful.key(
         { modkey }, "i", function ()
-          awful.spawn.with_shell("playerctl --all-players play-pause")
+          awful.spawn.with_shell("playerctl --player=mpd play-pause")
         end,
         { description = "Toggle playback", group = "Music" }
       ),
 
       awful.key(
         { modkey }, "o", function ()
-          awful.spawn.with_shell("playerctl --all-players next")
+          awful.spawn.with_shell("playerctl --player=mpd next")
         end,
         { description = "Next song", group = "Music" }
       ),

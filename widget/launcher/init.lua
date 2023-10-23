@@ -21,13 +21,13 @@ return {
     prompt_margins              = dpi(10),
     prompt_paddings             = dpi(2),
 
-    apps_per_row                = 16,
+    apps_per_row                = 10,
     apps_per_column             = 1,
     apps_spacing                = dpi(0),
 
     apps_margin                 = dpi(7),
     app_width                   = dpi(300),
-    app_height                  = dpi(30),
+    app_height                  = dpi(40),
 
     app_name_halign             = "left",
     app_name_valign             = "center",

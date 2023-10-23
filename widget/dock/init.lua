@@ -31,13 +31,13 @@ local dock = function(s)
   }
 
   -- autohiding the dock
-local function check_for_dock_hide()
-  if not s.selected_tag then
+  local function check_for_dock_hide()
+  if not awful.screen.focused().selected_tag then
     dock.visible = true -- No tag selected, so make the dock visible
     return
   end
 
-  for _, client in ipairs(s.selected_tag:clients()) do
+  for _, client in ipairs(awful.screen.focused().selected_tag:clients()) do
     if client.fullscreen then
       dock.visible = false -- Disable dock on fullscreen
       return
@@ -45,15 +45,15 @@ local function check_for_dock_hide()
   end
 
   -- Make dock visible if nothing is open
-  if #s.selected_tag:clients() < 1 then
+  if #awful.screen.focused().selected_tag:clients() < 1 then
     dock.visible = true
     return
   end
 
-  if s == mouse.screen then
+    if awful.screen.focused() == mouse.screen then
     local minimized
 
-    for _, c in ipairs(s.selected_tag:clients()) do
+    for _, c in ipairs(awful.screen.focused().selected_tag:clients()) do
       if c.minimized then
         minimized = true
       end
@@ -64,11 +64,11 @@ local function check_for_dock_hide()
       end
 
       if not c.minimized then
-        -- If the client enters the dock area, hide it
-        local y = c:geometry().y
-        local h = c.height
+      -- If the client enters the dock area, hide it
+      local y = c:geometry().y
+      local h = c.height
 
-        if (y + h) >= s.geometry.height - 85 then
+        if (y + h) >= awful.screen.focused().geometry.height - 85 then
           dock.visible = false
           return
         else
@@ -80,10 +80,10 @@ local function check_for_dock_hide()
     if minimized then
       dock.visible = true
     end
-  else
-    dock.visible = false
+    else
+      dock.visible = false
+    end
   end
-end
 
   -- a timer to check for dock hide
   local dockHide = gears.timer {
@@ -118,13 +118,14 @@ end
   -- Window state indicators
   local createDockIndicators = function(data)
     local clients = data.clients
-    local indicators = wibox.widget { layout = flexlayout, spacing = dpi(2) }
+    local indicators = wibox.widget { layout = flexlayout, spacing = 4 }
+
     for _, v in ipairs(clients) do
       local bac
       local click
 
       if v == client.focus then
-        bac = beautiful.bg_light
+        bac = beautiful.cyan
         click = function()
           v.minimized = true
         end
@@ -133,14 +134,28 @@ end
         bac = beautiful.red
 
       elseif v.minimized then
-        bac = beautiful.bg_normal
+        bac = beautiful.blue
         click = function()
           v.minimized = false
           v = client.focus
         end
 
+      elseif v.maximized then
+        bac = beautiful.green
+        click = function()
+          v.maximized = false
+          v = client.focus
+        end
+
+      elseif v.fullscreen then
+        bac = beautiful.yellow
+        click = function()
+          v.fullscreen = false
+          v = client.focus
+        end
+
       else
-        bac = beautiful.bg_dark .. '66'
+        bac = beautiful.fg_normal .. '66'
         click = function()
           v.minimized = true
         end

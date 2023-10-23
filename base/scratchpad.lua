@@ -30,7 +30,7 @@ local spad = bling.module.scratchpad {
 }
 
 local ncmpcpp = bling.module.scratchpad {
-    command = user.term_cmd .. "ncmpcpp -e ncmpcpp",
+    command = user.term_cmd .. "ncmpcpp -n ncmpcpp -e ncmpcpp",
     rule = { instance = "ncmpcpp" },
     sticky = true,
     autoclose = true,
