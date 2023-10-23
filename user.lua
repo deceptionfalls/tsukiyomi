@@ -39,13 +39,9 @@ _U.chatapp      = "discord"
 
 -- CLI apps
 _U.files_cli    = "ranger"
-_U.vol_cli      = "alsamixer"
 
 -- Music
 ---------------------------------------------
-
--- Set your mpc host and port for commands
-_U.mpc_command  = "mpc -h localhost -p 8800 "
 
 -- Turn on/off music related decorations
 _U.music_enabled      = true
@@ -70,7 +66,7 @@ _U.layouts      = {
 }
 
 -- If desktop icons are added, a new empty tag will be appended to your tags table
-_U.tags         = { '1', '2', '3', '4' }
+_U.tags         = { '1', '2', '3', '4', '5' }
 
 -- Titlebars
 ---------------------------------------------

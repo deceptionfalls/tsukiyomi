@@ -44,12 +44,6 @@ local music_bar = wibox.widget {
     widget = wibox.widget.progressbar
 }
 
-music_bar:connect_signal("button::press", function(_, lx, __, button, ___, w)
-    if button == 1 then
-        awful.spawn.with_shell("mpc --host localhost --port 8800 seek " .. math.ceil(lx * 100 / w.width) .. "%")
-    end
-end)
-
 local control_button_bg = beautiful.transparent
 local control_button_bg_hover = beautiful.bg_normal
 
@@ -92,21 +86,10 @@ local control_button = function(c, symbol, color, size, on_click, on_right_click
 end
 
 local music_play_pause = control_button(c, "󰏤", beautiful.fg_normal, dpi(30), function()
-    awful.spawn.with_shell("mpc --host localhost --port 8800 toggle")
-end)
-
--- Loop button
-local loop = control_button(c, "󰑖", beautiful.fg_normal, dpi(30), function()
-    awful.spawn.with_shell("mpc --host localhost --port 8800 repeat")
-end)
--- Shuffle playlist
-local shuffle = control_button(c, "󰒝", beautiful.fg_normal, dpi(30), function()
-    awful.spawn.with_shell("mpc  --host localhost --port 8800 random")
+    awful.spawn.with_shell("playerctl --all-players play-pause")
 end)
 
 local music_play_pause_textbox = music_play_pause:get_all_children()[1]:get_all_children()[1]
-local loop_textbox = loop:get_all_children()[1]:get_all_children()[1]
-local shuffle_textbox = shuffle:get_all_children()[1]:get_all_children()[1]
 
 local mpc = require("modules.bling").signal.playerctl.lib()
 local music_length = 0
@@ -143,26 +126,6 @@ mpc:connect_signal("playback_status", function(_, playing, player_name)
     end
 end)
 
-mpc:connect_signal("loop_status", function(_, loop_status, player_name)
-    if player_name == "mpd" then
-        if loop_status == "none" then
-            loop_textbox:set_markup_silently("󰑗")
-        else
-            loop_textbox:set_markup_silently("󰑖")
-        end
-    end
-end)
-
-mpc:connect_signal("shuffle", function(_, shuffle, player_name)
-    if player_name == "mpd" then
-        if shuffle then
-            shuffle_textbox:set_markup_silently("󰒝")
-        else
-            shuffle_textbox:set_markup_silently("󰒞")
-        end
-    end
-end)
-
 local music_create_decoration = function (c)
 
     -- Hide default titlebar
@@ -190,13 +153,13 @@ local music_create_decoration = function (c)
                 {
                     -- Go to playlist and focus currently playing song
                     control_button(c, "󰒮", beautiful.fg_normal, dpi(30), function()
-                        awful.spawn.with_shell("mpc --host localhost --port 8800 prev")
+                        awful.spawn.with_shell("playerctl --all-players previous")
                     end),
                     -- Toggle play pause
                     music_play_pause,
                     -- Go to list of playlists
                     control_button(c, "󰒭", beautiful.fg_normal, dpi(30), function()
-                        awful.spawn.with_shell("mpc --host localhost --port 8800 next")
+                        awful.spawn.with_shell("playerctl --all-players next")
                     end),
                     layout = wibox.layout.flex.horizontal
                 },
