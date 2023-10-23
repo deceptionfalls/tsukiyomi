@@ -204,21 +204,21 @@ awful.keyboard.append_global_keybindings({
     -- Volume
     awful.key(
       { nil }, "XF86AudioLowerVolume", function ()
-        awful.spawn.with_shell("pulsemixer --change-volume -10")
+        awful.spawn.with_shell("wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-")
       end,
       { description = "Raise volume", group = "Volume" }
     ),
 
     awful.key(
       { nil }, "XF86AudioRaiseVolume", function ()
-        awful.spawn.with_shell("pulsemixer --change-volume +10")
+        awful.spawn.with_shell("wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+")
       end,
       { description = "Decrease volume", group = "Volume" }
     ),
 
         awful.key(
       { nil }, "XF86AudioMute", function ()
-        awful.spawn.with_shell("pulsemixer --toggle-mute")
+        awful.spawn.with_shell("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
       end,
       { description = "Mute volume", group = "Volume" }
     ),
@@ -339,8 +339,6 @@ awful.mouse.append_client_mousebindings({
         c:activate { context = "mouse_click" }
     end),
     awful.button({ modkey }, 1, function (c)
-        c.floating = not c.floating
-        c:raise()
         c:activate { context = "mouse_click", action = "mouse_move"  }
     end),
     awful.button({ modkey }, 3, function (c)
