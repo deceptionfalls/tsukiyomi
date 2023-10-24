@@ -9,6 +9,7 @@ local modkey        = user.modkey
 local modkey2       = user.modkey2
 
 require("awful.autofocus")
+require("scripts.screenshot")
 
 awful.keyboard.append_global_keybindings({
     -- General

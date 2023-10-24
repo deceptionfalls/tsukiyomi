@@ -16,7 +16,6 @@ end)
 beautiful.init(gfs.get_configuration_dir() .. 'theme/init.lua')
 
 require('user')
-require('scripts')
 require('base')
 require('signals')
 require('widget')

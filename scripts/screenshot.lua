@@ -1,6 +1,5 @@
 local awful   = require("awful")
 local naughty = require("naughty")
-
 local user    = require("user")
 
 local function screenshot(args, time)
