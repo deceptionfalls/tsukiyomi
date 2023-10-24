@@ -104,7 +104,6 @@ And other aspects can also be tweaked outside of user configuration, like keybin
 ### Adwaita
 ![image](https://github.com/tsukki9696/tsukiyomi/assets/127806743/87b7dee0-df40-4b29-afea-42ae37d0dc5e)
 
-
 </details>
 
 ---
@@ -113,7 +112,8 @@ And other aspects can also be tweaked outside of user configuration, like keybin
 
 - Stardust kyun's [Sakura dotfiles](https://github.com/Stardust-kyun/dotfiles) and support, since they gave me the courage needed to tackle this project and also some sweet reference for how to do things, also the nice colorscheme
 - Gwynsav's gwdawful and [gwileful](https://github.com/Gwynsav/gwileful) rices, from which I borrowed some code, widgets and insight on how to execute ideas
-- Chadcat's [Crystal](https://github.com/chadcat7/crystal) rice, for the battery widget
+- Chadcat's [Crystal](https://github.com/chadcat7/crystal) rice, for the battery and dock widgets
+- Ner0z's [dotfiles](https://github.com/ner0z/dotfiles) for the music widget
 - The [Unixporn discord server](https://discord.gg/unixporn) for a lot of insight and troubleshooting
 - Nyoom for the [oxocarbon](https://github.com/nyoom-engineering/oxocarbon/tree/main) colorscheme
 - My mom, she's very cool
