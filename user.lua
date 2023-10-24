@@ -43,7 +43,7 @@ _U.files_cli    = "ranger"
 -- Music
 ---------------------------------------------
 
--- Turn on/off music related decorations
+-- Turn on/off music related decorations and signals
 _U.music_enabled      = true
 
 -- Awesome related
