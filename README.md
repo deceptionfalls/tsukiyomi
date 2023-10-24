@@ -10,20 +10,27 @@ An elegant AwesomeWM configuration focused on beauty. Comes with a carefully cra
 
 ### Dependencies
 
+#### Awesome-related, obligatory
 - [awesome-git](https://github.com/awesomeWM/awesome)
 - [rubato](https://github.com/andOrlando/rubato) (animations library)
 - [bling](https://blingcorp.github.io/bling/) (scratchpads and launcher)
 
-- `picom` (rounded corners)
-- `mpd`, `playerctl` and `mpDris2` (music control)
-- `ncmpcpp` (music widget)
-- `bluez` (bluetooth signals, optional)
-- `maim`, `xclip`, `slop` (screenshots)
+#### Music related, optional
+- `mpd`
+- `playerctl`
+- `mpDris2`
+- `ncmpcpp`
+- [`clematis`](https://github.com/TorchedSammy/clematis/tree/host-album-art)
 
-- `IBM Plex Sans`
-- `Pipewire` and `Wireplumber`
+#### Misc Software
+- `picom` (optional)
+- `bluez` (optional)
+- `maim`, `xclip`, `slop` (obligatory)
+- `IBM Plex Sans` (optional) and/or any [Nerd Font](https://www.nerdfonts.com/)
+- `Pipewire` and `Wireplumber` (obligatory)
+- `nemo` (optional)
 
-Your suite of apps can be swapped out with relative ease, but if you want to use exactly what i have, you'll need thunar, [siduck's build of st](https://github.com/siduck/st), [my custom neovim configuration](https://github.com/tsukki9696/totsuka), firefox, and ncmpcpp for a music player.
+Your suite of apps can be swapped out with relative ease, but if you want to use exactly what i have, [siduck's build of st](https://github.com/siduck/st), [my custom neovim configuration](https://github.com/tsukki9696/totsuka) and firefox.
 
 ---
 
