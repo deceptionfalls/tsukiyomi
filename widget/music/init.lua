@@ -132,7 +132,7 @@ local music_create_decoration = function (c)
     awful.titlebar.hide(c, user.titlebar_pos)
 
     -- Sidebar
-    awful.titlebar(c, { position = "left", size = dpi(250), bg = beautiful.bg_normal }):setup {
+    awful.titlebar(c, { position = "left", size = dpi(250), bg = beautiful.bg_dim }):setup {
         nil,
         {
             music_art_container,
@@ -146,7 +146,7 @@ local music_create_decoration = function (c)
     }
 
     -- Toolbar
-    awful.titlebar(c, { position = "bottom", size = dpi(63), bg = beautiful.bg_light }):setup {
+    awful.titlebar(c, { position = "bottom", size = dpi(63), bg = beautiful.bg_normal }):setup {
         music_bar,
         {
             {

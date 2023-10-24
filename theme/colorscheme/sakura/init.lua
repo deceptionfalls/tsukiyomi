@@ -4,6 +4,7 @@ local _C = {}
 
 -- Monochrome
 _C.bg_dark      = '#000f14'
+_C.bg_dim       = '#051419'
 _C.bg_normal    = '#0a191e'
 _C.bg_light     = '#202E32'
 _C.mid_dark     = '#344145'

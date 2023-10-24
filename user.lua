@@ -142,12 +142,13 @@ _U.style        = "rounded"
 
 -- Available colorschemes:
 -- biscuit_dark, sakura, oxocarbon, camellia
-_U.colorscheme  = "camellia"
+_U.colorscheme  = "sakura"
 
 -- Dictates color of homeicon, active tag, active border, etc.
 -- Available accent colors:
--- red, orange, yellow, green, cyan, lightblue, blue, magenta, purple
-_U.accent       = "red"
+-- white, red, orange, yellow, green, cyan, lightblue, blue, magenta, purple
+-- defaults to white
+_U.accent       = "white"
 
 -- Available icons:
 -- cookie, cookie_small, moon
@@ -165,10 +166,12 @@ _U.font_mono    = "IBM Plex Mono" .. " "
 _U.fontsize     = "11"
 
 -- Path to your icon theme
-_U.icon_theme   = home .. "/.icons/Reversal"
+_U.icon_theme   = home .. ".icons/Reversal"
 
 -- Image related
-_U.avatar       = home .. '/Pictures/Anime/makima/28312dca326645ebfaa677c36d7939d4.jpg'
-_U.wallpaper    = home .. '/Downloads/maqima.png'
+_U.avatar       = home .. 'Pictures/Anime/makima/28312dca326645ebfaa677c36d7939d4.jpg'
+_U.wallpaper    = home .. 'Downloads/sakura.png'
+
+_U.screenshotdir = home .. 'Pictures/Screenshots/'
 
 return _U

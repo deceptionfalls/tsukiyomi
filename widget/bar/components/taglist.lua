@@ -55,26 +55,11 @@ local function gettaglist(s)
 
                 self.update = function ()
                     if tag.selected then
-                        -- Current tag
-                        if user.bar_type == "vertical" then
-                          self.animate.target = dpi(50)
-                        else
-                          self.animate.target = dpi(60)
-                        end
+                        self.animate.target = dpi(50)
                     elseif #tag:clients() > 0 then
-                        -- Occupied tag
-                        if user.bar_type == "vertical" then
-                          self.animate.target = dpi(25)
-                        else
-                          self.animate.target = dpi(25)
-                        end
+                        self.animate.target = dpi(22)
                     else
-                        -- Empty tag
-                        if user.bar_type == "vertical" then
-                          self.animate.target = dpi(15)
-                        else
-                          self.animate.target = dpi(15)
-                        end
+                        self.animate.target = dpi(13)
                     end
                 end
 

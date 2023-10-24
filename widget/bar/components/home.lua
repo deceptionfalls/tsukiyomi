@@ -24,6 +24,7 @@ return function ()
     {
       {
         {
+          -- image  = beautiful.awesome_icon,
           image  = user.icon_style == "filled" and gears.color.recolor_image(icon, beautiful.accent) or icon,
           widget = wibox.widget.imagebox
         },
@@ -33,7 +34,7 @@ return function ()
       align  = "center",
       widget = wibox.container.place
     },
-    bg      = beautiful.bg_normal,
+    -- bg      = beautiful.bg_normal,
     visible = user.homeicon_vis,
     shape   = user.style == "rounded" and gears.shape.circle or gears.shape.rectangle,
     forced_height = user.bar_type == "vertical" and dpi(30) or dpi(70),

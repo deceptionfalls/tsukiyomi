@@ -64,8 +64,8 @@ awesome.connect_signal("signal::battery", function(value, state)
   b.state = state
   b.value = value
   if state then
-    b.color = beautiful.blue -- Set the color to blue for charging state
-    b.background_color = beautiful.blue .. '80'
+    b.color = beautiful.cyan -- Set the color to blue for charging state
+    b.background_color = beautiful.cyan .. '80'
   elseif value < 18 then
     b.color = beautiful.red
     b.background_color = beautiful.red .. '80'

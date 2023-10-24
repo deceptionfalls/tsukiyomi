@@ -10,3 +10,4 @@ end
 if user.desktop_icon == true then awful.spawn.once('nemo-desktop') end
 awful.spawn.once('mpd')
 awful.spawn.once('mpDris2')
+awful.spawn.once('clematis')

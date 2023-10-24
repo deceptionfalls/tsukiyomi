@@ -49,9 +49,11 @@ local function getAccentColor()
         accentColor = color.purple
     elseif user.accent == "magenta" then
         accentColor = color.magenta
+    elseif user.accent == "white" then
+        accentColor = color.fg_normal
     else
       -- default
-        accentColor = color.purple
+        accentColor = color.fg_normal
     end
 
     return accentColor
@@ -60,6 +62,7 @@ end
 _T.accent              = getAccentColor()
 
 _T.bg_dark             = color.bg_dark
+_T.bg_dim              = color.bg_dim
 _T.bg_normal           = color.bg_normal
 _T.bg_light            = color.bg_light
 _T.mid_dark            = color.mid_dark
@@ -68,6 +71,8 @@ _T.mid_light           = color.mid_light
 _T.fg_normal           = color.fg_normal
 
 _T.transparent         = '#00000000'
+
+_T.wallpaper           = color.wallpaper
 
 -- AWM values
 _T.useless_gap         = dpi(user.inner_gaps)
@@ -78,26 +83,29 @@ _T.border_color_active = _T.accent
 _T.menu_height         = dpi(15)
 _T.menu_width          = dpi(100)
 
-_T.layout_tile          = gears.color.recolor_image(path .. "default/layouts/tilew.png", _T.fg_normal)
-_T.layout_max           = gears.color.recolor_image(path .. "default/layouts/max.png", _T.fg_normal)
-_T.layout_floating      = gears.color.recolor_image(path .. "default/layouts/floatingw.png", _T.fg_normal)
+_T.awesome_icon        = require('beautiful.theme_assets').awesome_icon(dpi(100), color.fg_normal, color.bg_dark)
 
-_T.cookie               = gears.surface.load(icon_path .. "cookie3.svg")
-_T.moon                 = gears.surface.load(icon_path .. "moon.svg")
-_T.cookie_small         = gears.color.recolor_image(icon_path .. "cookie-small.svg", color.fg_normal)
-_T.volumeicon           = gears.color.recolor_image(icon_path .. "volume.svg", color.fg_normal)
-_T.volumeofficon        = gears.color.recolor_image(icon_path .. "volume-off.svg", color.fg_normal)
-_T.bluetoothicon        = gears.color.recolor_image(icon_path .. "bluetooth.svg", color.fg_normal)
-_T.bluetoothofficon     = gears.color.recolor_image(icon_path .. "bluetooth-off.svg", color.fg_normal)
-_T.wifiicon             = gears.color.recolor_image(icon_path .. "wifi.svg", color.fg_normal)
-_T.wifiofficon          = gears.color.recolor_image(icon_path .. "wifi-off.svg", color.fg_normal)
+_T.layout_tile         = gears.color.recolor_image(path .. "default/layouts/tilew.png", color.fg_normal)
+_T.layout_max          = gears.color.recolor_image(path .. "default/layouts/max.png", color.fg_normal)
+_T.layout_floating     = gears.color.recolor_image(path .. "default/layouts/floatingw.png", color.fg_normal)
+
+_T.cookie              = gears.surface.load(icon_path .. "cookie3.svg")
+_T.moon                = gears.surface.load(icon_path .. "moon.svg")
+_T.cookie_small        = gears.color.recolor_image(icon_path .. "cookie-small.svg", color.fg_normal)
+
+_T.volumeicon          = gears.color.recolor_image(icon_path .. "volume.svg", color.fg_normal)
+_T.volumeofficon       = gears.color.recolor_image(icon_path .. "volume-off.svg", color.mid_normal)
+_T.bluetoothicon       = gears.color.recolor_image(icon_path .. "bluetooth.svg", color.fg_normal)
+_T.bluetoothofficon    = gears.color.recolor_image(icon_path .. "bluetooth-off.svg", color.mid_normal)
+_T.wifiicon            = gears.color.recolor_image(icon_path .. "wifi.svg", color.fg_normal)
+_T.wifiofficon         = gears.color.recolor_image(icon_path .. "wifi-off.svg", color.mid_normal)
 
 -- Taglist
-_T.taglist_font         = _T.font
-_T.taglist_bg_focus     = _T.accent
-_T.taglist_bg_occupied  = color.mid_dark
-_T.taglist_bg_empty     = color.bg_light
-_T.taglist_bg_urgent    = color.yellow
+_T.taglist_font        = _T.font
+_T.taglist_bg_focus    = _T.accent
+_T.taglist_bg_occupied = color.mid_dark
+_T.taglist_bg_empty    = color.bg_light
+_T.taglist_bg_urgent   = color.yellow
 
 -- Tasklist
 _T.tasklist_bg_focus    = color.bg_light

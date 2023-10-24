@@ -189,14 +189,14 @@ awful.keyboard.append_global_keybindings({
     -- requires 'maim', 'slop', 'xclip-git'
     awful.key(
       { modkey }, "q", function ()
-        awful.spawn.with_shell("maim -u -m 5 | xclip -selection clipboard -t image/png -i")
+        awesome.emit_signal("screenshot::full")
       end,
       { description = "Screenshot whole screen", group = "Screenshot" }
     ),
 
     awful.key(
       { modkey, "Shift" }, "q", function ()
-        awful.spawn.with_shell("maim -u -m 5 -s | xclip -selection clipboard -t image/png -i")
+        awesome.emit_signal("screenshot::part")
       end,
       { description = "Screenshot selection", group = "Screenshot" }
     ),

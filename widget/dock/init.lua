@@ -125,7 +125,7 @@ local dock = function(s)
       local click
 
       if v == client.focus then
-        bac = beautiful.cyan
+        bac = beautiful.accent
         click = function()
           v.minimized = true
         end
@@ -134,7 +134,7 @@ local dock = function(s)
         bac = beautiful.red
 
       elseif v.minimized then
-        bac = beautiful.blue
+        bac = beautiful.mid_dark
         click = function()
           v.minimized = false
           v = client.focus
@@ -155,7 +155,7 @@ local dock = function(s)
         end
 
       else
-        bac = beautiful.fg_normal .. '66'
+        bac = beautiful.mid_dark
         click = function()
           v.minimized = true
         end
@@ -205,12 +205,12 @@ local dock = function(s)
     local customIcons = {
       {
         name        = "st",
-        convert     = "xfce4-terminal",
+        convert     = "gnome-terminal",
         command     = "st"
       },
       {
         name        = "neovim",
-        convert     = "neovim",
+        convert     = "kate",
         command     = user.term_cmd .. "neovim -e nvim"
       },
       {
