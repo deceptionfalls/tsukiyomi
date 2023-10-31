@@ -15,4 +15,7 @@ M="#4CB2E5"
 C="#A673EB"
 
 term
-browser $BG $BL $FG "#a0a0b475" 
+gtk "camellia"
+browser $BG $BL $FG "#E4E5E6" 
+discord "https://raw.githubusercontent.com/tsukki9696/discord-themes/main/camellia.theme.css"
+nvim "camellia"

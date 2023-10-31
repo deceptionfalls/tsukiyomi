@@ -26,7 +26,7 @@ return function ()
       bg         = beautiful.bg_normal,
       visible    = user.clock_vis,
       shape      = user.style == "rounded" and helpers.rrect(50) or gears.shape.rectangle,
-      widget     = wibox.container.background
+      widget     = wibox.container.background,
   }
 
   local vbar_clock = {
@@ -59,8 +59,7 @@ return function ()
   }
 
   if user.bar_type == "vertical" then
-    return vbar_clock
-  else
+    return vbar_clock else
     return clock
   end
 end

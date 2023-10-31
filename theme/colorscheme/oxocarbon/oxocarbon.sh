@@ -15,4 +15,7 @@ M="#08bdba"
 C="#3ddbd9"
 
 term
-browser $BG $BL $FG "#a0a0b475" 
+gtk "oomox-base16-oxocarbon-dark"
+nvim "oxocarbon"
+browser $BG $BL $FG "#dde1e6" 
+discord "https://raw.githubusercontent.com/tsukki9696/discord-themes/main/oxocarbon.theme.css"

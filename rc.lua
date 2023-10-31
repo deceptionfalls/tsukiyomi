@@ -20,4 +20,5 @@ require('base')
 require('signals')
 require('widget')
 
-require('base.auto') -- autostarts last
+require('theme.reload-theme') -- theme
+require('base.auto') -- autostarts

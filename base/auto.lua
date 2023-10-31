@@ -16,3 +16,5 @@ if user.music_enabled == true then
   awful.spawn.once('mpDris2')
   awful.spawn('clematis') -- rpc
 end
+
+awful.spawn.once('xsettingsd')

@@ -11,6 +11,8 @@ local tasks       = require("widget.bar.components.tasklist")
 local layouts     = require("widget.bar.components.layoutbox")
 local status      = require("widget.bar.components.status")
 local battery     = require("widget.bar.components.battery")
+local systray     = require("widget.bar.components.systray")
+local systray_btn = require("widget.bar.components.systray_btn")
 
 local dpi         = beautiful.xresources.apply_dpi
 local helpers     = require("helpers")
@@ -66,6 +68,8 @@ screen.connect_signal("request::desktop_decoration", function(s)
           nil,
           expand = "none",
         {
+          systray_btn(s),
+          systray(s),
           {
             battery,
             widget  = wibox.widget,

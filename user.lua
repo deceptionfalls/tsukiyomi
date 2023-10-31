@@ -3,11 +3,13 @@ local home  = os.getenv('HOME') .. '/'
 
 local _U = {}
 
+---------------------------------------------
 -- Functionality
 ---------------------------------------------
 _U.modkey       = "Mod4" -- Windows/Super key
 _U.modkey2      = "Mod1" -- Alt key
 
+---------------------------------------------
 -- Signals
 ---------------------------------------------
 
@@ -15,6 +17,7 @@ _U.modkey2      = "Mod1" -- Alt key
 _U.bluetooth_enabled  = true
 _U.battery_enabled    = true
 
+---------------------------------------------
 -- Desktop Icons
 ---------------------------------------------
 
@@ -24,6 +27,7 @@ _U.battery_enabled    = true
 -- https://star.is-a.dev/blog/icons
 _U.desktop_icon = false
 
+---------------------------------------------
 -- Apps
 ---------------------------------------------
 
@@ -40,19 +44,21 @@ _U.chatapp      = "discord"
 -- CLI apps
 _U.files_cli    = "ranger"
 
+---------------------------------------------
 -- Music
 ---------------------------------------------
 
 -- Turn on/off music related decorations and signals
 _U.music_enabled      = true
 
+---------------------------------------------
 -- Awesome related
 ---------------------------------------------
 
 _U.layouts      = {
   awful.layout.suit.tile,
-  -- awful.layout.suit.floating,
   awful.layout.suit.max,
+  awful.layout.suit.floating,
   -- awful.layout.suit.tile.left,
   -- awful.layout.suit.tile.bottom
   -- awful.layout.suit.tile.top
@@ -67,6 +73,7 @@ _U.layouts      = {
 
 _U.tags         = { '1', '2', '3' }
 
+---------------------------------------------
 -- Titlebars
 ---------------------------------------------
 
@@ -79,32 +86,36 @@ _U.titlebar_pos = "top"
 -- Toggle visibility of titlebar icons
 _U.titlebar_icons = true
 
+---------------------------------------------
 -- Bar
 ---------------------------------------------
 
 -- Type of bar:
 -- horizontal, vertical
-_U.bar_type     = "horizontal"
+_U.bar_type     = "vertical"
 
 -- Position of the bar:
 -- bottom, top, left, right
-_U.bar_pos      = "top"
+_U.bar_pos      = "left"
 
 -- Don't, looks bad, just don't
 _U.transparent_bar = false
 
+---------------------------------------------
 -- Dock
 ---------------------------------------------
 
 -- Toggle the dock on/off
 _U.dock_enabled = true
 
+---------------------------------------------
 -- Notifications
 ---------------------------------------------
 
 -- Position of notifications
 _U.notification_pos = "top_right"
 
+---------------------------------------------
 -- Borders and gaps
 ---------------------------------------------
 
@@ -118,6 +129,7 @@ _U.spacing      = 8
 _U.inner_gaps   = 3
 _U.outer_gaps   = 15
 
+---------------------------------------------
 -- UI Style
 ---------------------------------------------
 
@@ -126,18 +138,19 @@ _U.outer_gaps   = 15
 -- sharp, rounded
 _U.style        = "rounded"
 
+---------------------------------------------
 -- Color and themes
 ---------------------------------------------
 
 -- Available colorschemes:
--- biscuit_dark, sakura, oxocarbon, camellia, adwaita, catpuccin, latte
-_U.colorscheme  = "camellia"
+-- biscuit_dark, sakura, oxocarbon, camellia, adwaita, catpuccin, latte, fullerene
+_U.colorscheme  = "latte"
 
 -- Dictates color of homeicon, active tag, active border, etc.
 -- Available accent colors:
 -- white, red, orange, yellow, green, cyan, lightblue, blue, magenta, purple
 -- defaults to "white" if nil
-_U.accent       = "red"
+_U.accent       = "lightblue"
 
 -- Available icons:
 -- cookie, cookie_small, moon, star, awm
@@ -153,8 +166,8 @@ _U.fontsize     = "11"
 _U.icon_theme   = home .. ".icons/Colloid"
 
 -- Image related
-_U.avatar       = home .. 'Pictures/Anime/power/30.jpg'
-_U.wallpaper    = home .. 'Wallpapers/makima.png'
+_U.avatar       = home .. 'Pictures/Anime/gojo/e1e3f7bdfd49eea4c99abc186a1d1000.jpg'
+-- _U.wallpaper    = home .. 'Wallpapers/pinkflowers.jpg'
 
 _U.screenshotdir = home .. 'Pictures/Screenshots/'
 

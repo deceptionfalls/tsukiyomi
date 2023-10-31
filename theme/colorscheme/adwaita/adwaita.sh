@@ -15,4 +15,7 @@ M="#1c71d8"
 C="#E05C91"
 
 term
-browser $BG $BL $FG "#a0a0b475" 
+gtk "adwaita-base16"
+browser $BG $BL $FG "#eeeeee" 
+discord "https://raw.githubusercontent.com/tsukki9696/discord-themes/main/adwaita.theme.css"
+nvim "adwaita"

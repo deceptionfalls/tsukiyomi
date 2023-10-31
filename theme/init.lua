@@ -9,6 +9,7 @@ local color      = require('theme.colorscheme')
 
 local path       = gfs.get_themes_dir()
 local icon_path  = gfs.get_configuration_dir() .. 'assets/'
+local pltt_path  = gfs.get_configuration_dir() .. "theme/colorscheme/" .. user.colorscheme .. "/"
 
 local _T = {}
 
@@ -72,7 +73,7 @@ _T.fg_normal           = color.fg_normal
 
 _T.transparent         = '#00000000'
 
-_T.wallpaper           = color.wallpaper
+_T.wallpaper           = pltt_path .. "wallpaper.png"
 
 -- AWM values
 _T.useless_gap         = dpi(user.inner_gaps)

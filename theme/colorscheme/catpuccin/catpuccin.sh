@@ -3,7 +3,7 @@
 source $HOME/.config/awesome/theme/desktop.sh
 
 # Colors
-BG="#11111b"
+BG="#1e1e2e"
 FG="#cdd6f4"
 BL="#45475a"
 WH="#6c7086"
@@ -15,4 +15,7 @@ M="#89b4fa"
 C="#cba6f7"
 
 term
-browser $BG $BL $FG "#a0a0b475" 
+gtk "catppuccin-base16"
+nvim "catppuccin-mocha"
+browser $BG $BL $FG "#cdd6f4" 
+discord "https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css"

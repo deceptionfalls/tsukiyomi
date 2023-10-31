@@ -58,7 +58,11 @@ local function gettaglist(s)
                     elseif #tag:clients() > 0 then
                         self.animate.target = dpi(22)
                     else
+                      if user.bar_type == "vertical" then
+                        self.animate.target = dpi(14)
+                      else
                         self.animate.target = dpi(13)
+                      end
                     end
                 end
 

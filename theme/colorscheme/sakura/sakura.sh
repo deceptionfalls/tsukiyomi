@@ -15,4 +15,7 @@ M="#645078"
 C="#327d7d"
 
 term 
+gtk "sakura-base16"
 browser $BG $BL $FG "#a0a0b475" 
+discord "https://raw.githubusercontent.com/tsukki9696/discord-themes/main/sakura.theme.css"
+nvim "sakura"

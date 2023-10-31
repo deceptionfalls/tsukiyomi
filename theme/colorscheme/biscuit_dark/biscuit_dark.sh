@@ -15,4 +15,7 @@ M="#614F76"
 C="#AE3F82"
 
 term 
-browser $BG $BL $FG "#a0a0b475" 
+gtk "biscuit-dark"
+browser $BG $BL $FG "#ffe9c7" 
+discord "https://raw.githubusercontent.com/Biscuit-Colorscheme/discord/main/biscuit-dark.themes.css"
+nvim "biscuit_dark"

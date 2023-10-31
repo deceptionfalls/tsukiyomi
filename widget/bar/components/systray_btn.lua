@@ -14,7 +14,7 @@ return function()
               align   = "center",
               widget  = wibox.widget.textbox,
           },
-          direction   = user.bar_pos and "south" or "east",
+          direction   = user.bar_pos == "vertical" and "south" or "east",
           widget      = wibox.container.rotate
       },
       bg     = beautiful.bg_dark,

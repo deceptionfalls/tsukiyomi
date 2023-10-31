@@ -15,4 +15,7 @@ M="#04a5e5"
 C="#ea76cb"
 
 term
-browser $BG $WH $FG "#4b464675" 
+gtk "latte-base16"
+nvim "catppuccin-latte"
+browser $BG $WH $FG "#4c4f69" 
+discord "https://catppuccin.github.io/discord/dist/catppuccin-latte-sky.theme.css"
