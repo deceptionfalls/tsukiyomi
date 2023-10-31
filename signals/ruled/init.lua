@@ -22,7 +22,11 @@ ruled.client.connect_signal("request::rules", function()
             "Nemo-desktop"
           }
         },
-        properties  = { tag = " ", sticky = true }
+        properties  = {
+          -- tag = " ",
+          border_width = 0,
+          sticky = true
+        }
       }
     end
 
@@ -53,7 +57,5 @@ ruled.client.connect_signal("request::rules", function()
       }
     end
 
-    ruled.client.append_rule { rule = { class = user.browser }, properties = { screen = 1, tag = "1" } }
-    ruled.client.append_rule { rule = { class = user.chatapp }, properties = { screen = 1, tag = "2" } }
-    ruled.client.append_rule { rule = { class = user.files   }, properties = { screen = 1, tag = "3" } }
+    ruled.client.append_rule { rule = { class = user.browser, user.chatapp }, properties = { screen = 1, tag = "1" } }
 end)

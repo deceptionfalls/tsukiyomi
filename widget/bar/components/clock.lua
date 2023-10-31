@@ -54,7 +54,6 @@ return function ()
     },
     fg      = beautiful.fg_normal,
     bg      = beautiful.bg_normal,
-    visible = user.clock_vis,
     shape   = user.style == "rounded" and helpers.rrect(50) or gears.shape.rectangle,
     widget  = wibox.container.background
   }

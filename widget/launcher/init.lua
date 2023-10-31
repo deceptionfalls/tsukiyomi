@@ -19,14 +19,14 @@ return {
 
     prompt_height               = dpi(25),
     prompt_margins              = dpi(10),
-    prompt_paddings             = dpi(2),
+    prompt_paddings             = dpi(5),
 
     apps_per_row                = 10,
     apps_per_column             = 1,
     apps_spacing                = dpi(0),
 
     apps_margin                 = dpi(7),
-    app_width                   = dpi(300),
+    app_width                   = dpi(400),
     app_height                  = dpi(40),
 
     app_name_halign             = "left",
@@ -42,7 +42,7 @@ return {
 
     app_shape                   = user.style == "rounded" and helpers.rrect(15),
 
-    border_color                = beautiful.accent,
+    border_color                = beautiful.bg_normal,
 
     background                  = beautiful.bg_dark,
     prompt_color                = beautiful.bg_dark,

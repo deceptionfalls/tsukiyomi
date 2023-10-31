@@ -44,7 +44,6 @@ local function gettasklist(s)
                 widget  = wibox.container.margin
             },
             id      = 'background_role',
-            visible = user.tasklist_vis,
             widget  = wibox.container.background
         }
     }

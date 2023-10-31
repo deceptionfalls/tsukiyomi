@@ -209,11 +209,6 @@ local dock = function(s)
         command     = "st"
       },
       {
-        name        = "neovim",
-        convert     = "kate",
-        command     = user.term_cmd .. "neovim -e nvim"
-      },
-      {
         name        = "steam",
         convert     = "steam",
         command     = "steam-native"
@@ -221,7 +216,7 @@ local dock = function(s)
       {
         name        = "ncmpcpp",
         convert     = "spotify",
-        command     = user.term_cmd .. "ncmpcpp -e ncmpcpp"
+        command     = user.term_cmd .. "ncmpcpp -n ncmpcpp -e ncmpcpp"
       },
     }
 
@@ -255,6 +250,8 @@ local dock = function(s)
       forced_width = 50,
       widget = wibox.container.background
     }
+
+    helpers.hoverCursor(dockelement)
     return dockelement
   end
 
@@ -299,9 +296,9 @@ local dock = function(s)
       {
         count   = 0,
         id      = 5,
-        name    = "neovim",
+        name    = "ncmpcpp",
         clients = {},
-        class   = "neovim"
+        class   = "ncmpcpp"
       },
       {
         count   = 0,
@@ -310,16 +307,9 @@ local dock = function(s)
         clients = {},
         class   = "steam"
       },
-      {
-        count   = 0,
-        id      = 7,
-        name    = "zathura",
-        clients = {},
-        class   = "zathura"
-      },
     }
 
-    local classes = { "st", "discord", "firefox", "nemo", "neovim", "steam", "zathura" }
+    local classes = { "st", "discord", "firefox", "nemo", "ncmpcpp", "steam", }
     local dockElements = wibox.widget { layout = layout, spacing = user.spacing }
 
     -- generating the data
@@ -352,7 +342,6 @@ local dock = function(s)
       dockElements:add(createDockElement(j))
     end
 
-    helpers.hoverCursor(dockElements)
     return dockElements
 
   end

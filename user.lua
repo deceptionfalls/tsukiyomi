@@ -52,7 +52,7 @@ _U.music_enabled      = true
 _U.layouts      = {
   awful.layout.suit.tile,
   -- awful.layout.suit.floating,
-  -- awful.layout.suit.max,
+  awful.layout.suit.max,
   -- awful.layout.suit.tile.left,
   -- awful.layout.suit.tile.bottom
   -- awful.layout.suit.tile.top
@@ -65,17 +65,19 @@ _U.layouts      = {
   -- awful.layout.suit.corner.nw
 }
 
--- If desktop icons are added, a new empty tag will be appended to your tags table
-_U.tags         = { '1', '2', '3', '4', '5' }
+_U.tags         = { '1', '2', '3' }
 
 -- Titlebars
 ---------------------------------------------
 
 -- Toggle titlebars on/off
-_U.titlebar     = false
+_U.titlebar     = true
 
 -- Position of titlebar
-_U.titlebar_pos = "left"
+_U.titlebar_pos = "top"
+
+-- Toggle visibility of titlebar icons
+_U.titlebar_icons = true
 
 -- Bar
 ---------------------------------------------
@@ -97,19 +99,6 @@ _U.transparent_bar = false
 -- Toggle the dock on/off
 _U.dock_enabled = true
 
--- Visiblity 
----------------------------------------------
-
-_U.bar_vis      = true -- the whole damn thing
-_U.homeicon_vis = true -- homeicon
-_U.taglist_vis  = true -- taglist, invisible if theres only one tag
-_U.tasklist_vis = true -- tasklist
-_U.battery_vis  = true -- battery, not loaded if battery signal is deactivated
-_U.status_vis   = true -- status icons
-_U.clock_vis    = true -- clock, invisible if theres only one tag
-_U.layout_vis   = true -- layoutbox
-_U.pfp_vis      = true -- avatar that toggles the control center (WIP)
-
 -- Notifications
 ---------------------------------------------
 
@@ -126,7 +115,7 @@ _U.border       = 0
 _U.spacing      = 8
 
 -- Inner and outer gaps
-_U.inner_gaps   = 5
+_U.inner_gaps   = 3
 _U.outer_gaps   = 15
 
 -- UI Style
@@ -141,23 +130,18 @@ _U.style        = "rounded"
 ---------------------------------------------
 
 -- Available colorschemes:
--- biscuit_dark, sakura, oxocarbon, camellia
-_U.colorscheme  = "sakura"
+-- biscuit_dark, sakura, oxocarbon, camellia, adwaita, catpuccin, latte
+_U.colorscheme  = "camellia"
 
 -- Dictates color of homeicon, active tag, active border, etc.
 -- Available accent colors:
 -- white, red, orange, yellow, green, cyan, lightblue, blue, magenta, purple
--- defaults to white
-_U.accent       = "white"
+-- defaults to "white" if nil
+_U.accent       = "red"
 
 -- Available icons:
--- cookie, cookie_small, moon
+-- cookie, cookie_small, moon, star, awm
 _U.icon         = "cookie_small"
-
--- TODO: add more icons that follow this rule
--- Style for the home icon:
--- normal, filled
-_U.icon_style   = "filled"
 
 -- Font config
 -- the little space is for declaring a custom font size
@@ -166,11 +150,11 @@ _U.font_mono    = "IBM Plex Mono" .. " "
 _U.fontsize     = "11"
 
 -- Path to your icon theme
-_U.icon_theme   = home .. ".icons/Reversal"
+_U.icon_theme   = home .. ".icons/Colloid"
 
 -- Image related
-_U.avatar       = home .. 'Pictures/Anime/makima/28312dca326645ebfaa677c36d7939d4.jpg'
-_U.wallpaper    = home .. 'Downloads/sakura.png'
+_U.avatar       = home .. 'Pictures/Anime/power/30.jpg'
+_U.wallpaper    = home .. 'Wallpapers/makima.png'
 
 _U.screenshotdir = home .. 'Pictures/Screenshots/'
 

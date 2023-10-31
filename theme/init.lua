@@ -77,21 +77,22 @@ _T.wallpaper           = color.wallpaper
 -- AWM values
 _T.useless_gap         = dpi(user.inner_gaps)
 _T.border_width        = dpi(user.border)
-_T.border_color_normal = color.bg_dark
-_T.border_color_active = _T.accent
+_T.border_color_normal = color.bg_normal
+_T.border_color_active = color.bg_light
 
 _T.menu_height         = dpi(15)
 _T.menu_width          = dpi(100)
 
-_T.awesome_icon        = require('beautiful.theme_assets').awesome_icon(dpi(100), color.fg_normal, color.bg_dark)
+_T.awesome_icon        = require('beautiful.theme_assets').awesome_icon(dpi(100), _T.accent, color.bg_dark)
 
 _T.layout_tile         = gears.color.recolor_image(path .. "default/layouts/tilew.png", color.fg_normal)
 _T.layout_max          = gears.color.recolor_image(path .. "default/layouts/max.png", color.fg_normal)
 _T.layout_floating     = gears.color.recolor_image(path .. "default/layouts/floatingw.png", color.fg_normal)
 
-_T.cookie              = gears.surface.load(icon_path .. "cookie3.svg")
-_T.moon                = gears.surface.load(icon_path .. "moon.svg")
-_T.cookie_small        = gears.color.recolor_image(icon_path .. "cookie-small.svg", color.fg_normal)
+_T.star                = gears.color.recolor_image(icon_path .. "star.svg", _T.accent)
+_T.cookie              = gears.color.recolor_image(icon_path .. "cookie3.svg", _T.accent)
+_T.moon                = gears.color.recolor_image(icon_path .. "moon.svg", _T.accent)
+_T.cookie_small        = gears.color.recolor_image(icon_path .. "cookie-small.svg", _T.accent)
 
 _T.volumeicon          = gears.color.recolor_image(icon_path .. "volume.svg", color.fg_normal)
 _T.volumeofficon       = gears.color.recolor_image(icon_path .. "volume-off.svg", color.mid_normal)
@@ -109,7 +110,7 @@ _T.taglist_bg_urgent   = color.yellow
 
 -- Tasklist
 _T.tasklist_bg_focus    = color.bg_light
-_T.tasklist_bg_normal   = color.bg_normal
+_T.tasklist_bg_normal   = color.bg_dark
 
 -- Titlebar
 _T.titlebar_bg_normal   = color.bg_normal

@@ -8,7 +8,7 @@ local user         = require("user")
 
 local createButton = function(c, fn)
     local btn = wibox.widget {
-      forced_width  = dpi(60),
+      forced_width  = dpi(15),
       forced_height = (user.titlebar_pos == "left" and dpi(40)) or (user.titlebar_pos == "right" and dpi(40)) or dpi(15),
       bg            = beautiful.bg_light,
       shape         = user.style == "rounded" and helpers.rrect(15) or gears.shape.rectangle,
@@ -72,6 +72,7 @@ local createButton = function(c, fn)
               spacing = dpi(user.spacing),
               widget  = wibox.container.place,
               halign  = 'center',
+              visible = user.titlebar_icons,
               layout  = (user.titlebar_pos == "left" and wibox.layout.fixed.vertical) or (user.titlebar_pos == "right" and wibox.layout.fixed.vertical) or wibox.layout.fixed.horizontal
             },
             top    = dpi(5),

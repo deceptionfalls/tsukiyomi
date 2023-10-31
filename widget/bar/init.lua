@@ -19,10 +19,6 @@ local user        = require('user')
 screen.connect_signal("request::desktop_decoration", function(s)
     awful.tag(user.tags, s, awful.layout.layouts[1])
 
-    if user.desktop_icon == true then
-      awful.tag.add(" ", { screen = s })
-    end
-
     local taglist_v = wibox.widget {
         {
             tags(s),
@@ -31,7 +27,6 @@ screen.connect_signal("request::desktop_decoration", function(s)
         },
         bg      = beautiful.bg_normal,
         shape   = user.style == "rounded" and helpers.rrect(50) or gears.shape.rectangle,
-        visible = user.taglist_vis,
         widget  = wibox.container.background
     }
     helpers.hoverCursor(taglist_v)
@@ -44,7 +39,6 @@ screen.connect_signal("request::desktop_decoration", function(s)
                 widget  = wibox.container.margin,
             },
             bg          = beautiful.bg_normal,
-            visible     = user.taglist_vis,
             shape       = user.style == "rounded" and helpers.rrect(50) or gears.shape.rectangle,
             widget      = wibox.container.background
           },
@@ -57,7 +51,6 @@ screen.connect_signal("request::desktop_decoration", function(s)
  s.wibar    = awful.wibar {
       position       = user.bar_pos,
       screen         = s,
-      visible        = user.bar_vis,
       height         = user.bar_type == "vertical" and dpi(750) or dpi(30),
       border_width   = dpi(10),
       border_color   = user.transparent_bar == true and beautiful.transparent or beautiful.bg_dark,
@@ -70,8 +63,8 @@ screen.connect_signal("request::desktop_decoration", function(s)
           spacing = dpi(user.spacing),
           layout = user.bar_type == "vertical" and wibox.layout.fixed.vertical or wibox.layout.fixed.horizontal
         },
-        nil,
-        expand = "none",
+          nil,
+          expand = "none",
         {
           {
             battery,
@@ -84,11 +77,10 @@ screen.connect_signal("request::desktop_decoration", function(s)
           {
             {
                 layouts(s),
-                margins = dpi(user.spacing),
+                margins = dpi(7),
                 widget  = wibox.container.margin
             },
             bg      = beautiful.bg_normal,
-            visible = #user.layouts > 1,
             shape   = user.style == "rounded" and helpers.rrect(30),
             widget  = wibox.container.background
           },
@@ -97,6 +89,10 @@ screen.connect_signal("request::desktop_decoration", function(s)
           layout  = user.bar_type == "vertical" and wibox.layout.fixed.vertical or wibox.layout.fixed.horizontal
         },
         layout  = user.bar_type == "vertical" and wibox.layout.align.vertical or wibox.layout.align.horizontal,
+        right   = dpi(user.outer_gaps),
+        left    = dpi(user.outer_gaps),
+        bottom  = dpi(user.outer_gaps),
+        top     = dpi(user.outer_gaps),
         widget  = wibox.container.margin
       }
     }

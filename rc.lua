@@ -19,3 +19,5 @@ require('user')
 require('base')
 require('signals')
 require('widget')
+
+require('base.auto') -- autostarts last

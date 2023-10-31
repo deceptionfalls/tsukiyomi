@@ -12,7 +12,6 @@ local user      = require('user')
 
 local function gettaglist(s)
     return awful.widget.taglist {
-        visible = user.taglist_vis,
         screen = s,
         filter = awful.widget.taglist.filter.all,
         style = {

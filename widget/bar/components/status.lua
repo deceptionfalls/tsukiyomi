@@ -61,7 +61,6 @@ return function ()
       bottom = user.bar_type == "vertical" and dpi(9) or dpi(0),
       widget = wibox.container.margin
     },
-    visible  = user.status_vis,
     bg       = beautiful.bg_normal,
     shape    = user.style == "rounded" and helpers.rrect(30) or gears.shape.rectangle,
     widget   = wibox.container.background

@@ -29,7 +29,7 @@ local batstatus = wibox.widget {
           {
             {
             font   = user.font .. "16",
-            markup = helpers.colorizeText("󱐋", beautiful.bg_dark),
+            markup = user.colorscheme == "latte" and helpers.colorizeText("󱐋", beautiful.fg_normal) or helpers.colorizeText("󱐋", beautiful.bg_dark),
             widget = wibox.widget.textbox,
             valign = "center",
             align  = "center"
@@ -64,8 +64,8 @@ awesome.connect_signal("signal::battery", function(value, state)
   b.state = state
   b.value = value
   if state then
-    b.color = beautiful.cyan -- Set the color to blue for charging state
-    b.background_color = beautiful.cyan .. '80'
+    b.color = beautiful.lightblue -- Set the color to blue for charging state
+    b.background_color = beautiful.lightblue .. '80'
   elseif value < 18 then
     b.color = beautiful.red
     b.background_color = beautiful.red .. '80'

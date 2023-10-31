@@ -137,17 +137,17 @@ awful.keyboard.append_global_keybindings({
 
     -- Focus
     awful.key(
-      { modkey }, "j", function ()
-        awful.client.focus.bydirection('down')
+      { modkey }, "k", function ()
+        awful.client.focus.byidx(-1)
       end,
-      { description = "Focus below window", group = "Focus" }
+      { description = "Focus on previous tag", group = "Focus" }
     ),
 
     awful.key(
-      { modkey }, "k", function ()
-        awful.client.focus.bydirection('up')
+      { modkey }, "j", function ()
+        awful.client.focus.byidx( 1)
       end,
-      { description = "Focus above window", group = "Focus" }
+      { description = "Focus on next tag", group = "Focus" }
     ),
 
     awful.key(
