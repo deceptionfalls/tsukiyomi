@@ -87,20 +87,15 @@ And other aspects can also be tweaked outside of user configuration, like keybin
 <details>
 <summary><b>Colorschemes</b></summary>
 
-### Biscuit
-![image](https://github.com/tsukki9696/tsukiyomi/assets/127806743/ca28a8a8-6ed8-464b-8758-94b76a2ecf4f)
+![biscuit](https://github.com/tsukki9696/tsukiyomi/assets/127806743/84be1cf0-da73-4347-b77f-f7fb35938e67)
+![oxocarbon](https://github.com/tsukki9696/tsukiyomi/assets/127806743/b42bb64b-c681-42ef-be52-aa6072e9c5fa)
+![sakura](https://github.com/tsukki9696/tsukiyomi/assets/127806743/d5d4f925-7f22-4e4e-8b7c-deca79d36024)
+![camellia](https://github.com/tsukki9696/tsukiyomi/assets/127806743/f39a1342-7c18-446c-b828-84c9c0206dcf)
+![adwaita](https://github.com/tsukki9696/tsukiyomi/assets/127806743/c0a28752-5730-4a25-8e3f-3d5c802d0e9b)
+![latte](https://github.com/tsukki9696/tsukiyomi/assets/127806743/ea6f9ce7-2571-44ef-ba64-e7f83acaa6af)
+![catppuccin](https://github.com/tsukki9696/tsukiyomi/assets/127806743/70449b4f-3f74-4593-9718-762a7df07706)
+![fullerene](https://github.com/tsukki9696/tsukiyomi/assets/127806743/71fdbcfc-656b-4fe6-8eff-17d32b13c26a)
 
-### Oxocarbon
-![image](https://github.com/tsukki9696/tsukiyomi/assets/127806743/c66cc039-02ac-4ffa-9e74-e4d6f669dfa8)
-
-### Sakura
-![image](https://github.com/tsukki9696/tsukiyomi/assets/127806743/8b5853bc-2610-405c-8376-33b31d2e7f9b)
-
-### Camellia
-![image](https://github.com/tsukki9696/tsukiyomi/assets/127806743/6087c1bb-7c65-4ae2-a541-df5b7b604db1)
-
-### Adwaita
-![image](https://github.com/tsukki9696/tsukiyomi/assets/127806743/87b7dee0-df40-4b29-afea-42ae37d0dc5e)
 
 </details>
 
