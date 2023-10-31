@@ -78,7 +78,6 @@ And other aspects can also be tweaked outside of user configuration, like keybin
 
 - Control center widget
 - Better keybinds popup
-- Theme switcher
 - Overall cleanup of code
 
 ---
@@ -107,6 +106,7 @@ And other aspects can also be tweaked outside of user configuration, like keybin
 - Gwynsav's gwdawful and [gwileful](https://github.com/Gwynsav/gwileful) rices, from which I borrowed some code, widgets and insight on how to execute ideas
 - Chadcat's [Crystal](https://github.com/chadcat7/crystal) rice, for the battery and dock widgets
 - Ner0z's [dotfiles](https://github.com/ner0z/dotfiles) for the music widget
+- Garado's [script](https://github.com/garado/cozy/blob/18d9e810a81da427085a8261194d95aa6df05a97/theme/integration.lua) for changing nvim themes
 - The [Unixporn discord server](https://discord.gg/unixporn) for a lot of insight and troubleshooting
 - Nyoom for the [oxocarbon](https://github.com/nyoom-engineering/oxocarbon/tree/main) colorscheme
 - My mom, she's very cool
