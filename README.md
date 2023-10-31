@@ -77,10 +77,8 @@ And other aspects can also be tweaked outside of user configuration, like keybin
 ### TODO
 
 - Control center widget
-- More complex screenshot signals
 - Better keybinds popup
 - Theme switcher
-- Preset colorscheme-matching wallpapers
 - Overall cleanup of code
 
 ---
