@@ -13,6 +13,8 @@ An elegant AwesomeWM configuration focused on beauty. Comes with a carefully cra
 - [rubato](https://github.com/andOrlando/rubato) (animations library)
 - [bling](https://blingcorp.github.io/bling/) (scratchpads and launcher)
 
+> __WARNING 2:__ As of November 6 2023 you need to manually build awesome from source with [this patch](https://github.com/awesomeWM/awesome/pull/3811) for this configuration to work, this is because of a small screen signal for properly setting wallpapers, everything else can be used as is
+
 #### Music related, optional
 - `mpd`
 - `playerctl`
@@ -114,4 +116,5 @@ And other aspects can also be tweaked outside of user configuration, like keybin
 - Ner0z's [dotfiles](https://github.com/ner0z/dotfiles) for the music widget
 - The [Unixporn discord server](https://discord.gg/unixporn) for a lot of insight and troubleshooting
 - Nyoom for the [oxocarbon](https://github.com/nyoom-engineering/oxocarbon/tree/main) colorscheme
+- Sinomor's [dotfiles](https://github.com/Sinomor/dotfiles) for some helper functions and the execution of inner and outer gaps
 - My mom, she's very cool
