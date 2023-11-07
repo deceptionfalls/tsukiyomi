@@ -56,29 +56,29 @@ _U.music_enabled      = true
 ---------------------------------------------
 
 _U.layouts      = {
-  awful.layout.suit.tile,
+  -- awful.layout.suit.tile,
+  awful.layout.suit.spiral.dwindle,
   awful.layout.suit.max,
-  awful.layout.suit.floating,
+  -- awful.layout.suit.floating,
   -- awful.layout.suit.tile.left,
   -- awful.layout.suit.tile.bottom
   -- awful.layout.suit.tile.top
   -- awful.layout.suit.fair
   -- awful.layout.suit.fair.horizontal
   -- awful.layout.suit.spiral
-  -- awful.layout.suit.spiral.dwindle
   -- awful.layout.suit.max.fullscreen
   -- awful.layout.suit.magnifier
   -- awful.layout.suit.corner.nw
 }
 
-_U.tags         = { '1', '2', '3' }
+_U.tags         = { '1', '2' }
 
 ---------------------------------------------
 -- Titlebars
 ---------------------------------------------
 
 -- Toggle titlebars on/off
-_U.titlebar     = true
+_U.titlebar     = false
 
 -- Position of titlebar
 _U.titlebar_pos = "top"
@@ -92,11 +92,11 @@ _U.titlebar_icons = true
 
 -- Type of bar:
 -- horizontal, vertical
-_U.bar_type     = "vertical"
+_U.bar_type     = "horizontal"
 
 -- Position of the bar:
 -- bottom, top, left, right
-_U.bar_pos      = "left"
+_U.bar_pos      = "top"
 
 -- Don't, looks bad, just don't
 _U.transparent_bar = false
@@ -120,7 +120,9 @@ _U.notification_pos = "top_right"
 ---------------------------------------------
 
 -- Border width
-_U.border       = 0
+-- If titlebars are off, this will use the color of your accent color,
+-- else it will use bg colors
+_U.border       = 2
 
 -- Spacing between UI elements
 _U.spacing      = 8
@@ -135,7 +137,7 @@ _U.outer_gaps   = 15
 
 -- Style of UI elements and windows 
 -- affects corner radius, visual style of the bar, etc
--- sharp, rounded
+-- sharp, rounded, semi-rounded
 _U.style        = "rounded"
 
 ---------------------------------------------
@@ -143,14 +145,14 @@ _U.style        = "rounded"
 ---------------------------------------------
 
 -- Available colorschemes:
--- biscuit_dark, sakura, oxocarbon, camellia, adwaita, catpuccin, latte, fullerene
-_U.colorscheme  = "latte"
+-- biscuit_dark, sakura, oxocarbon, camellia, adwaita, latte, fullerene, stardew, solarized
+_U.colorscheme  = "stardew"
 
 -- Dictates color of homeicon, active tag, active border, etc.
 -- Available accent colors:
 -- white, red, orange, yellow, green, cyan, lightblue, blue, magenta, purple
 -- defaults to "white" if nil
-_U.accent       = "lightblue"
+_U.accent       = "purple"
 
 -- Available icons:
 -- cookie, cookie_small, moon, star, awm
@@ -160,15 +162,17 @@ _U.icon         = "cookie_small"
 -- the little space is for declaring a custom font size
 _U.font         = "IBM Plex Sans" .. " "
 _U.font_mono    = "IBM Plex Mono" .. " "
-_U.fontsize     = "11"
+_U.fontsize     = "14"
 
 -- Path to your icon theme
 _U.icon_theme   = home .. ".icons/Colloid"
 
 -- Image related
-_U.avatar       = home .. 'Pictures/Anime/gojo/e1e3f7bdfd49eea4c99abc186a1d1000.jpg'
--- _U.wallpaper    = home .. 'Wallpapers/pinkflowers.jpg'
+_U.avatar       = home .. 'Pictures/Anime/himmy/himmyeggs.jpg'
+-- _U.wallpaper    = home .. 'Wallpapers/boccher2.jpeg'
 
 _U.screenshotdir = home .. 'Pictures/Screenshots/'
+
+_U.username      = os.getenv("USER")
 
 return _U

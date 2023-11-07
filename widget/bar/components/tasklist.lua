@@ -33,7 +33,7 @@ local function gettasklist(s)
             layout  = user.bar_type == "vertical" and wibox.layout.fixed.vertical or wibox.layout.fixed.horizontal
         },
         style = {
-            shape = user.style == "rounded" and gears.shape.circle or gears.shape.rectangle
+            shape = user.style == "rounded" and gears.shape.circle or user.style == "semi-rounded" and helpers.rrect(10) or gears.shape.rectangle
         },
         widget_template = {
             {

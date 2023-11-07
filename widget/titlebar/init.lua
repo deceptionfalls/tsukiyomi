@@ -11,7 +11,7 @@ local createButton = function(c, fn)
       forced_width  = dpi(15),
       forced_height = (user.titlebar_pos == "left" and dpi(40)) or (user.titlebar_pos == "right" and dpi(40)) or dpi(15),
       bg            = beautiful.bg_light,
-      shape         = user.style == "rounded" and helpers.rrect(15) or gears.shape.rectangle,
+      shape         = user.style == "rounded" and helpers.rrect(15) or user.style == "semi-rounded" and helpers.rrect(5) or gears.shape.rectangle,
       buttons       = {
         awful.button({}, 1, function()
           fn(c)
@@ -46,18 +46,22 @@ local createButton = function(c, fn)
         c1.minimized = not c1.minimized
       end)
     end)
+
     local buttons = gears.table.join(
+
       awful.button({}, 1, function()
         client.focus = c
         c:raise()
         awful.mouse.client.move(c)
       end),
+
       awful.button({}, 3, function()
         client.focus = c
         c:raise()
         awful.mouse.client.resize(c)
       end)
     )
+
     awful.titlebar(c, {
       size = dpi(40),
       position = user.titlebar_pos
@@ -84,8 +88,8 @@ local createButton = function(c, fn)
         },
         layout = (user.titlebar_pos == "left" and wibox.layout.align.vertical) or (user.titlebar_pos == "right" and wibox.layout.align.vertical) or wibox.layout.align.horizontal
       },
-      right  = dpi(10),
-      left   = dpi(10),
+      right  = dpi(15),
+      left   = dpi(15),
       top    = dpi(5),
       bottom = dpi(5),
       widget = wibox.container.margin

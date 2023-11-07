@@ -4,13 +4,18 @@ local user      = require("user")
 
 ruled.client.connect_signal("request::rules", function()
     ruled.client.append_rule {
-      id         = "global",
-      rule       = { },
+      id = "global",
+      rule = { },
       properties = {
-          focus     = awful.client.focus.filter,
-          raise     = true,
-          screen    = awful.screen.preferred,
-          placement = awful.placement.no_overlap+awful.placement.no_offscreen
+        raise = true,
+        size_hints_honor = false,
+        screen = awful.screen.preferred,
+        focus = awful.client.focus.filter,
+        placement = function(c)
+          awful.placement.centered(c, c.transient_for)
+          awful.placement.no_overlap(c)
+          awful.placement.no_offscreen(c)
+        end,
       }
     }
 

@@ -79,13 +79,19 @@ _T.wallpaper           = pltt_path .. "wallpaper.png"
 _T.useless_gap         = dpi(user.inner_gaps)
 _T.border_width        = dpi(user.border)
 _T.border_color_normal = color.bg_normal
-_T.border_color_active = color.bg_light
+
+if user.titlebar == true then
+  _T.border_color_active = color.bg_light
+  else
+  _T.border_color_active = _T.accent
+end
 
 _T.menu_height         = dpi(15)
 _T.menu_width          = dpi(100)
 
 _T.awesome_icon        = require('beautiful.theme_assets').awesome_icon(dpi(100), _T.accent, color.bg_dark)
 
+_T.layout_dwindle      = gears.color.recolor_image(path .. "default/layouts/dwindle.png", color.fg_normal)
 _T.layout_tile         = gears.color.recolor_image(path .. "default/layouts/tilew.png", color.fg_normal)
 _T.layout_max          = gears.color.recolor_image(path .. "default/layouts/max.png", color.fg_normal)
 _T.layout_floating     = gears.color.recolor_image(path .. "default/layouts/floatingw.png", color.fg_normal)
@@ -111,7 +117,7 @@ _T.taglist_bg_urgent   = color.yellow
 
 -- Tasklist
 _T.tasklist_bg_focus    = color.bg_light
-_T.tasklist_bg_normal   = color.bg_dark
+_T.tasklist_bg_normal   = color.bg_normal
 
 -- Titlebar
 _T.titlebar_bg_normal   = color.bg_normal
@@ -139,5 +145,10 @@ _T.bg_systray           = color.bg_dark
 
 -- Notifications
 _T.notification_spacing = dpi(user.outer_gaps)
+
+-- Tooltips
+_T.tooltip_bg           = color.bg_normal
+_T.tooltip_fg           = color.fg_normal
+_T.tooltip_opacity      = 0
 
 return _T

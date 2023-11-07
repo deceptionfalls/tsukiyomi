@@ -14,7 +14,7 @@ return function ()
           valign = "center",
           halign = "center",
           widget = wibox.widget.textclock,
-          font   = user.font .. user.fontsize,
+          font   = user.font .. "11"
         },
         left     = dpi(15),
         right    = dpi(15),
@@ -25,7 +25,7 @@ return function ()
       fg         = beautiful.fg_normal,
       bg         = beautiful.bg_normal,
       visible    = user.clock_vis,
-      shape      = user.style == "rounded" and helpers.rrect(50) or gears.shape.rectangle,
+      shape      = user.style == "rounded" and helpers.rrect(50) or user.style == "semi-rounded" and helpers.rrect(10) or gears.shape.rectangle,
       widget     = wibox.container.background,
   }
 
@@ -54,7 +54,7 @@ return function ()
     },
     fg      = beautiful.fg_normal,
     bg      = beautiful.bg_normal,
-    shape   = user.style == "rounded" and helpers.rrect(50) or gears.shape.rectangle,
+    shape   = user.style == "rounded" and helpers.rrect(50) or user.style == "semi-rounded" and helpers.rrect(10) or gears.shape.rectangle,
     widget  = wibox.container.background
   }
 

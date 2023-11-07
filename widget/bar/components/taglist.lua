@@ -15,7 +15,7 @@ local function gettaglist(s)
         screen = s,
         filter = awful.widget.taglist.filter.all,
         style = {
-            shape = user.style == "rounded" and helpers.rrect(50) or gears.shape.rectangle,
+            shape = user.style == "rounded" and helpers.rrect(50) or user.style == "semi-rounded" and helpers.rrect(5) or gears.shape.rectangle,
         },
         layout = {
             spacing = user.spacing,

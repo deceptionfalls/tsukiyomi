@@ -62,7 +62,7 @@ return function ()
       widget = wibox.container.margin
     },
     bg       = beautiful.bg_normal,
-    shape    = user.style == "rounded" and helpers.rrect(30) or gears.shape.rectangle,
+    shape    = user.style == "rounded" and helpers.rrect(30) or user.style == "semi-rounded" and helpers.rrect(10) or gears.shape.rectangle,
     widget   = wibox.container.background
   }
 

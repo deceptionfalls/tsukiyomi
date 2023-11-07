@@ -1,12 +1,13 @@
-local awful         = require("awful")
-local bling         = require('modules.bling')
-local hotkeys_popup = require("awful.hotkeys_popup")
+local awful          = require("awful")
+local bling          = require("modules.bling")
+local hotkeys_popup  = require("awful.hotkeys_popup")
 
-local launcher      = require('widget.launcher')
-local user          = require("user")
+local launcher       = require("widget.launcher")
+local user           = require("user")
+local helpers        = require("helpers")
 
-local modkey        = user.modkey
-local modkey2       = user.modkey2
+local modkey         = user.modkey
+local modkey2        = user.modkey2
 
 require("awful.autofocus")
 require("scripts.screenshot")
@@ -106,20 +107,6 @@ awful.keyboard.append_global_keybindings({
       { description = "Swap with right window", group = "Windows" }
     ),
 
-    awful.key(
-      { modkey, "Control" }, "l", function ()
-        awful.tag.incmwfact( 0.05)
-      end,
-      { description = "Increase master width", group = "Windows" }
-    ),
-
-    awful.key(
-      { modkey, "Control" }, "h", function ()
-        awful.tag.incmwfact(-0.05)
-      end,
-      { description = "Decrease master width", group = "Windows" }
-    ),
-
     -- Layout
     awful.key(
       { modkey }, "Tab", function ()
@@ -184,6 +171,14 @@ awful.keyboard.append_global_keybindings({
         awful.spawn.with_shell("steam-native")
       end,
       { description = "Spawn steam", group = "Apps" }
+    ),
+
+    -- hambuh buh
+    awful.key(
+      { modkey }, "]", function ()
+        awesome.emit_signal("controlcenter::toggle")
+      end,
+      { description = "Spawn Control Center", group = "Awesome" }
     ),
 
     -- Screenshot
@@ -292,6 +287,35 @@ client.connect_signal("request::default_keybindings", function()
       end,
       { description = "Toggle floating", group = "Awesome" }
     ),
+
+    awful.key(
+      { modkey, "Control" }, "k", function(c)
+        helpers.resize_client(c.focus, "up")
+      end,
+      { description = "Resize vertically -- up", group = "Windows" }
+    ),
+
+    awful.key(
+      { modkey, "Control" }, "j", function(c)
+        helpers.resize_client(c.focus, "down")
+      end,
+      { description = "Resize vertically -- down", group = "Windows" }
+    ),
+
+    awful.key(
+      { modkey, "Control" }, "h", function(c)
+        helpers.resize_client(c.focus, "left")
+      end,
+      { description = "Resize horizontally  -- left", group = "Windows" }
+    ),
+
+    awful.key(
+      { modkey, "Control" }, "l", function(c)
+        helpers.resize_client(c.focus, "right")
+      end,
+      { description = "Resize horizontally -- right", group = "Windows" }
+    ),
+
   })
 end)
 

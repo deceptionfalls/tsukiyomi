@@ -19,6 +19,7 @@ local helpers     = require("helpers")
 local user        = require('user')
 
 screen.connect_signal("request::desktop_decoration", function(s)
+    awful.tag.add("0", { screen = s, layout = awful.layout.suit.max })
     awful.tag(user.tags, s, awful.layout.layouts[1])
 
     local taglist_v = wibox.widget {
@@ -28,7 +29,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
             widget  = wibox.container.margin
         },
         bg      = beautiful.bg_normal,
-        shape   = user.style == "rounded" and helpers.rrect(50) or gears.shape.rectangle,
+        shape   = user.style == "rounded" and helpers.rrect(50) or user.style == "semi-rounded" and helpers.rrect(10) or gears.shape.rectangle,
         widget  = wibox.container.background
     }
     helpers.hoverCursor(taglist_v)
@@ -41,13 +42,15 @@ screen.connect_signal("request::desktop_decoration", function(s)
                 widget  = wibox.container.margin,
             },
             bg          = beautiful.bg_normal,
-            shape       = user.style == "rounded" and helpers.rrect(50) or gears.shape.rectangle,
+            shape       = user.style == "rounded" and helpers.rrect(50) or user.style == "semi-rounded" and helpers.rrect(10) or gears.shape.rectangle,
             widget      = wibox.container.background
           },
           direction   = "east",
           widget      = wibox.container.rotate
         }
     helpers.hoverCursor(taglist)
+    helpers.hoverCursor(layouts(s))
+
 
 -- le bar
  s.wibar    = awful.wibar {
@@ -85,7 +88,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
                 widget  = wibox.container.margin
             },
             bg      = beautiful.bg_normal,
-            shape   = user.style == "rounded" and helpers.rrect(30),
+            shape   = user.style == "rounded" and helpers.rrect(30) or user.style == "semi-rounded" and helpers.rrect(10) or gears.shape.rectangle,
             widget  = wibox.container.background
           },
           pfp(s),

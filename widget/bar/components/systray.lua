@@ -8,7 +8,7 @@ return function()
   local systray  = wibox.widget {
       {
           horizontal  = user.bar_pos == "vertical" and false or true,
-          base_size   = dpi(30),
+          base_size   = dpi(25),
           widget      = wibox.widget.systray
       },
       align   = "center",

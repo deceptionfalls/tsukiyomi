@@ -3,7 +3,10 @@ local user  = require('user')
 
 -- handle styles
 if user.style == "rounded" then
-  awful.spawn.easy_async_with_shell('picom --corner-radius 15') else
+  awful.spawn.easy_async_with_shell('picom --corner-radius 15')
+  elseif user.style == "semi-rounded" then
+  awful.spawn.easy_async_with_shell('picom --corner-radius 8')
+  else
   awful.spawn.easy_async_with_shell('picom')
 end
 
