@@ -1,15 +1,6 @@
 local awful = require('awful')
 local user  = require('user')
 
--- handle styles
-if user.style == "rounded" then
-  awful.spawn.easy_async_with_shell('picom --corner-radius 15')
-  elseif user.style == "semi-rounded" then
-  awful.spawn.easy_async_with_shell('picom --corner-radius 8')
-  else
-  awful.spawn.easy_async_with_shell('picom')
-end
-
 -- handle desktop icons
 if user.desktop_icon == true then awful.spawn.once('nemo-desktop') end
 
@@ -17,7 +8,8 @@ if user.desktop_icon == true then awful.spawn.once('nemo-desktop') end
 if user.music_enabled == true then
   awful.spawn.once('mpd')
   awful.spawn.once('mpDris2')
-  awful.spawn('clematis') -- rpc
+  awful.spawn.once('clematis') -- rpc
 end
 
+awful.spawn.once('picom')
 awful.spawn.once('xsettingsd')

@@ -25,7 +25,7 @@ _U.battery_enabled    = true
 -- WARNING: this only works with the floating layout, it will break everything else
 -- requires Nemo as your file manager, plus some setup regarding Nemo: learn more about it on
 -- https://star.is-a.dev/blog/icons
-_U.desktop_icon = false
+_U.desktop_icon = true
 
 ---------------------------------------------
 -- Apps
@@ -57,21 +57,21 @@ _U.music_enabled      = true
 
 _U.layouts      = {
   -- awful.layout.suit.tile,
-  awful.layout.suit.spiral.dwindle,
-  awful.layout.suit.max,
-  -- awful.layout.suit.floating,
+  -- awful.layout.suit.spiral.dwindle,
+  -- awful.layout.suit.max,
+  awful.layout.suit.floating,
   -- awful.layout.suit.tile.left,
-  -- awful.layout.suit.tile.bottom
-  -- awful.layout.suit.tile.top
-  -- awful.layout.suit.fair
-  -- awful.layout.suit.fair.horizontal
-  -- awful.layout.suit.spiral
-  -- awful.layout.suit.max.fullscreen
-  -- awful.layout.suit.magnifier
-  -- awful.layout.suit.corner.nw
+  -- awful.layout.suit.tile.bottom,
+  -- awful.layout.suit.tile.top,
+  -- awful.layout.suit.fair,
+  -- awful.layout.suit.fair.horizontal,
+  -- awful.layout.suit.spiral,
+  -- awful.layout.suit.max.fullscreen,
+  -- awful.layout.suit.magnifier,
+  -- awful.layout.suit.corner.nw,
 }
 
-_U.tags         = { '1', '2' }
+_U.tags         = { '1', '2', '3', '4', '5' }
 
 ---------------------------------------------
 -- Titlebars
@@ -106,7 +106,7 @@ _U.transparent_bar = false
 ---------------------------------------------
 
 -- Toggle the dock on/off
-_U.dock_enabled = true
+_U.dock_enabled = false
 
 ---------------------------------------------
 -- Notifications
@@ -122,7 +122,7 @@ _U.notification_pos = "top_right"
 -- Border width
 -- If titlebars are off, this will use the color of your accent color,
 -- else it will use bg colors
-_U.border       = 2
+_U.border       = 0
 
 -- Spacing between UI elements
 _U.spacing      = 8
@@ -145,31 +145,31 @@ _U.style        = "rounded"
 ---------------------------------------------
 
 -- Available colorschemes:
--- biscuit_dark, sakura, oxocarbon, camellia, adwaita, latte, fullerene, stardew, solarized
-_U.colorscheme  = "stardew"
+-- biscuit, sakura, oxocarbon, camellia, adwaita, latte, fullerene, stardew, solarized, chi-tsuki, nymph
+_U.colorscheme   = "biscuit"
 
 -- Dictates color of homeicon, active tag, active border, etc.
 -- Available accent colors:
 -- white, red, orange, yellow, green, cyan, lightblue, blue, magenta, purple
 -- defaults to "white" if nil
-_U.accent       = "purple"
+_U.accent        = "green"
 
 -- Available icons:
 -- cookie, cookie_small, moon, star, awm
-_U.icon         = "cookie_small"
+_U.icon          = "cookie_small"
 
 -- Font config
 -- the little space is for declaring a custom font size
-_U.font         = "IBM Plex Sans" .. " "
-_U.font_mono    = "IBM Plex Mono" .. " "
-_U.fontsize     = "14"
+_U.font          = "IBM Plex Sans" .. " "
+_U.font_mono     = "IBM Plex Mono" .. " "
+_U.fontsize      = "14"
 
 -- Path to your icon theme
-_U.icon_theme   = home .. ".icons/Colloid"
+_U.icon_theme    = home .. ".icons/Colloid"
 
 -- Image related
-_U.avatar       = home .. 'Pictures/Anime/himmy/himmyeggs.jpg'
--- _U.wallpaper    = home .. 'Wallpapers/boccher2.jpeg'
+_U.avatar        = home .. 'Pictures/Anime/etc/5968c154f23d649bbddfa85f41e0df13.jpg'
+_U.wallpaper     = home .. 'Wallpapers/walls-main/custom/42.jpg'
 
 _U.screenshotdir = home .. 'Pictures/Screenshots/'
 

@@ -167,6 +167,13 @@ awful.keyboard.append_global_keybindings({
     ),
 
     awful.key(
+      { modkey }, "e", function ()
+        awful.spawn(user.files)
+      end,
+      { description = "Spawn chatapp", group = "Apps" }
+    ),
+
+    awful.key(
       { modkey }, "s", function ()
         awful.spawn.with_shell("steam-native")
       end,
@@ -359,14 +366,16 @@ awful.mouse.append_global_mousebindings({
     awful.button({ }, 5, awful.tag.viewnext),
 })
 
-awful.mouse.append_client_mousebindings({
-    awful.button({ }, 1, function (c)
-        c:activate { context = "mouse_click" }
-    end),
-    awful.button({ modkey }, 1, function (c)
-        c:activate { context = "mouse_click", action = "mouse_move"  }
-    end),
-    awful.button({ modkey }, 3, function (c)
-        c:activate { context = "mouse_click", action = "mouse_resize"}
-    end),
-})
+client.connect_signal("request::default_mousebindings", function()
+    awful.mouse.append_client_mousebindings({
+        awful.button({ }, 1, function (c)
+            c:activate { context = "mouse_click" }
+        end),
+        awful.button({ modkey }, 1, function (c)
+            c:activate { context = "mouse_click", action = "mouse_move"  }
+        end),
+        awful.button({ modkey }, 3, function (c)
+            c:activate { context = "mouse_click", action = "mouse_resize"}
+        end),
+    })
+end)

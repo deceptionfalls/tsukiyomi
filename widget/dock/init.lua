@@ -309,7 +309,7 @@ local dock = function(s)
       },
     }
 
-    local classes = { "st", "discord", "firefox", "nemo", "ncmpcpp", "steam", }
+    local classes = { "st", "discord", "firefox", "nemo", "ncmpcpp", "steam" }
     local dockElements = wibox.widget { layout = layout, spacing = user.spacing }
 
     -- generating the data

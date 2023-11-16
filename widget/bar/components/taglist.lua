@@ -18,7 +18,7 @@ local function gettaglist(s)
             shape = user.style == "rounded" and helpers.rrect(50) or user.style == "semi-rounded" and helpers.rrect(5) or gears.shape.rectangle,
         },
         layout = {
-            spacing = user.spacing,
+            spacing = dpi(5),
             layout  = wibox.layout.fixed.vertical,
         },
         buttons = {
@@ -54,9 +54,9 @@ local function gettaglist(s)
 
                 self.update = function ()
                     if tag.selected then
-                        self.animate.target = dpi(50)
+                        self.animate.target = dpi(60)
                     elseif #tag:clients() > 0 then
-                        self.animate.target = dpi(22)
+                        self.animate.target = dpi(25)
                     else
                       if user.bar_type == "vertical" then
                         self.animate.target = dpi(14)

@@ -70,6 +70,36 @@ local createButton = function(c, fn)
         {
           {
             {
+              align  = 'center',
+              widget = awful.widget.clienticon(c),
+            },
+            spacing = dpi(user.spacing),
+            widget = wibox.container.margin,
+            visible = user.titlebar_icons,
+            align = 'center',
+          },
+          top    = dpi(5),
+          bottom = dpi(5),
+          widget = wibox.container.margin
+        },
+        {
+          {
+              {
+                align  = 'center',
+                widget = awful.titlebar.widget.titlewidget(c),
+              },
+            spacing = dpi(user.spacing),
+            widget = wibox.container.margin,
+            visible = user.titlebar_icons,
+            align = 'center',
+          },
+          top    = dpi(5),
+          bottom = dpi(5),
+          widget = wibox.container.margin
+        },
+        {
+          {
+            {
               minimize,
               maximize,
               close,
@@ -88,8 +118,8 @@ local createButton = function(c, fn)
         },
         layout = (user.titlebar_pos == "left" and wibox.layout.align.vertical) or (user.titlebar_pos == "right" and wibox.layout.align.vertical) or wibox.layout.align.horizontal
       },
-      right  = dpi(15),
-      left   = dpi(15),
+      right  = dpi(10),
+      left   = dpi(10),
       top    = dpi(5),
       bottom = dpi(5),
       widget = wibox.container.margin

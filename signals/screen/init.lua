@@ -27,6 +27,7 @@ screen.connect_signal('request::wallpaper', function(s)
             },
             widget = wibox.container.background,
             -- GNOME style notches around the bar, this handles the corners to round depending on bar position
+            bg     = beautiful.bg_normal,
             shape  = function(c, w, h)
               if user.bar_pos == "top" then
                 gears.shape.partially_rounded_rect(c, w, h, true, true, false, false, dpi(12))

@@ -7,11 +7,10 @@ local batteryFullNotified   = false
 local batteryChargeNotified = false
 
 awesome.connect_signal("signal::battery", function(value, state)
-  local b = batstatus
-  b.state = state
-  b.value = value
+  batstatus.state = state
+  batstatus.value = value
 
-  if state then
+  if batstatus.state then
     if not batteryChargeNotified then
       naughty.notification {
         title   = "Power Management",
@@ -20,7 +19,7 @@ awesome.connect_signal("signal::battery", function(value, state)
       batteryChargeNotified = true
     end
   else
-    if value <= 18 and not batteryLowNotified then
+    if batstatus.value <= 18 and not batteryLowNotified then
       naughty.notification {
         title   = "Power Management",
         message = "Battery is running low!", timeout = 0
@@ -28,7 +27,7 @@ awesome.connect_signal("signal::battery", function(value, state)
       batteryLowNotified = true
     end
 
-    if value == 100 and not batteryFullNotified then
+    if batstatus.value == 100 and not batteryFullNotified then
       naughty.notification {
         title   = "Power Management",
         message = "Battery is full!", timeout = 0

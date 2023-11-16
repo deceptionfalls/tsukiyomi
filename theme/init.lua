@@ -108,6 +108,28 @@ _T.bluetoothofficon    = gears.color.recolor_image(icon_path .. "bluetooth-off.s
 _T.wifiicon            = gears.color.recolor_image(icon_path .. "wifi.svg", color.fg_normal)
 _T.wifiofficon         = gears.color.recolor_image(icon_path .. "wifi-off.svg", color.mid_normal)
 
+_T.battery             = gears.color.recolor_image(icon_path .. "battery.svg", color.fg_normal)
+_T.battery10           = gears.color.recolor_image(icon_path .. "battery-10.svg", color.fg_normal)
+_T.battery20           = gears.color.recolor_image(icon_path .. "battery-20.svg", color.fg_normal)
+_T.battery30           = gears.color.recolor_image(icon_path .. "battery-30.svg", color.fg_normal)
+_T.battery40           = gears.color.recolor_image(icon_path .. "battery-40.svg", color.fg_normal)
+_T.battery50           = gears.color.recolor_image(icon_path .. "battery-50.svg", color.fg_normal)
+_T.battery60           = gears.color.recolor_image(icon_path .. "battery-60.svg", color.fg_normal)
+_T.battery70           = gears.color.recolor_image(icon_path .. "battery-70.svg", color.fg_normal)
+_T.battery80           = gears.color.recolor_image(icon_path .. "battery-80.svg", color.fg_normal)
+_T.battery90           = gears.color.recolor_image(icon_path .. "battery-90.svg", color.fg_normal)
+
+_T.batterycharging100  = gears.color.recolor_image(icon_path .. "battery-charging-100.svg", color.fg_normal)
+_T.batterycharging10   = gears.color.recolor_image(icon_path .. "battery-charging-10.svg", color.fg_normal)
+_T.batterycharging20   = gears.color.recolor_image(icon_path .. "battery-charging-20.svg", color.fg_normal)
+_T.batterycharging30   = gears.color.recolor_image(icon_path .. "battery-charging-30.svg", color.fg_normal)
+_T.batterycharging40   = gears.color.recolor_image(icon_path .. "battery-charging-40.svg", color.fg_normal)
+_T.batterycharging50   = gears.color.recolor_image(icon_path .. "battery-charging-50.svg", color.fg_normal)
+_T.batterycharging60   = gears.color.recolor_image(icon_path .. "battery-charging-60.svg", color.fg_normal)
+_T.batterycharging70   = gears.color.recolor_image(icon_path .. "battery-charging-70.svg", color.fg_normal)
+_T.batterycharging80   = gears.color.recolor_image(icon_path .. "battery-charging-80.svg", color.fg_normal)
+_T.batterycharging90   = gears.color.recolor_image(icon_path .. "battery-charging-90.svg", color.fg_normal)
+
 -- Taglist
 _T.taglist_font        = _T.font
 _T.taglist_bg_focus    = _T.accent
@@ -124,7 +146,7 @@ _T.titlebar_bg_normal   = color.bg_normal
 _T.titlebar_bg_focus    = color.bg_light
 _T.titlebar_bg_urgent   = color.bg_normal
 
-_T.titlebar_fg_normal   = color.mid_normal
+_T.titlebar_fg_normal   = color.fg_normal
 _T.titlebar_fg_focus    = color.fg_normal
 _T.titlebar_fg_urgent   = color.red
 

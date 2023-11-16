@@ -19,7 +19,6 @@ local helpers     = require("helpers")
 local user        = require('user')
 
 screen.connect_signal("request::desktop_decoration", function(s)
-    awful.tag.add("0", { screen = s, layout = awful.layout.suit.max })
     awful.tag(user.tags, s, awful.layout.layouts[1])
 
     local taglist_v = wibox.widget {
@@ -63,34 +62,33 @@ screen.connect_signal("request::desktop_decoration", function(s)
       widget         = {
         {
           home(s),
-          user.bar_type == "vertical" and taglist_v or taglist,
-          tasks(s),
+          -- tasks(s),
           spacing = dpi(user.spacing),
           layout = user.bar_type == "vertical" and wibox.layout.fixed.vertical or wibox.layout.fixed.horizontal
         },
-          nil,
+          user.bar_type == "vertical" and taglist_v or taglist,
           expand = "none",
         {
           systray_btn(s),
           systray(s),
-          {
-            battery,
-            widget  = wibox.widget,
-            layout  = wibox.layout.fixed.horizontal,
-            visible = user.battery_enabled
-          },
-          status(s),
+          -- {
+          --   battery,
+          --   widget  = wibox.widget,
+          --   layout  = wibox.layout.fixed.horizontal,
+          --   visible = user.battery_enabled
+          -- },
           clock(s),
-          {
-            {
-                layouts(s),
-                margins = dpi(7),
-                widget  = wibox.container.margin
-            },
-            bg      = beautiful.bg_normal,
-            shape   = user.style == "rounded" and helpers.rrect(30) or user.style == "semi-rounded" and helpers.rrect(10) or gears.shape.rectangle,
-            widget  = wibox.container.background
-          },
+          status(s),
+          -- {
+          --   {
+          --       layouts(s),
+          --       margins = dpi(7),
+          --       widget  = wibox.container.margin
+          --   },
+          --   bg      = beautiful.bg_normal,
+          --   shape   = user.style == "rounded" and helpers.rrect(30) or user.style == "semi-rounded" and helpers.rrect(10) or gears.shape.rectangle,
+          --   widget  = wibox.container.background
+          -- },
           pfp(s),
           spacing = dpi(user.spacing),
           layout  = user.bar_type == "vertical" and wibox.layout.fixed.vertical or wibox.layout.fixed.horizontal

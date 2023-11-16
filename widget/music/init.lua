@@ -45,7 +45,7 @@ local music_bar = wibox.widget {
 }
 
 local control_button_bg = beautiful.transparent
-local control_button_bg_hover = beautiful.bg_normal
+local control_button_bg_hover = beautiful.bg_dark
 
 local control_button = function(c, symbol, color, size, on_click, on_right_click)
     local icon = wibox.widget{

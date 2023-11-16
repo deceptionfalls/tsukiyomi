@@ -4,8 +4,8 @@ local awful = require('awful')
 local gears = require('gears')
 
 -- Bluetooth Fetching and Signal Emitting
-local status_old = -1
 -- Emit a bluetooth status signal
+local status_old = -1
 local function emit_bluetooth_status()
     awful.spawn.easy_async_with_shell(
         "bash -c 'bluetoothctl show | grep -i powered:'", function(stdout)
@@ -17,6 +17,7 @@ local function emit_bluetooth_status()
             end
         end)
 end
+
 -- Change bluetooth status
 awesome.connect_signal('bluetooth::toggle', function()
     if status_old == 0 then

@@ -40,7 +40,9 @@ ruled.client.connect_signal("request::rules", function()
         rule_any  = {
             instance = { "copyq", "pinentry" },
             class    = {
-                "Arandr", "Blueman-manager", "Gpick", "Kruler", "Sxiv", "Tor Browser", "Wpa_gui", "veromix", "xtightvncviewer", "feh", "qview"
+                "Arandr", "Blueman-manager", "Gpick", "Kruler", "Sxiv",
+                "Tor Browser", "Wpa_gui", "veromix", "xtightvncviewer", "feh", "qview", "ncmpcpp",
+                "Places"
             },
             name    = {
                 "Event Tester",  -- xev.

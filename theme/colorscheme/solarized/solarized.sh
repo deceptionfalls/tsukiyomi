@@ -15,7 +15,7 @@ M="#495FCC"
 C="#d33682"
 
 term
-# gtk "fullerene-base16"
+gtk "solarized-base16"
 browser $BG $WH $FG "#56767E" 
 discord "https://raw.githubusercontent.com/tsukki9696/discord-themes/main/solarized.theme.css"
 nvim "solarized"
