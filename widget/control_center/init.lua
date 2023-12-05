@@ -9,11 +9,12 @@ local user              = require("user")
 
 local profile           = require("widget.control_center.components.profile")
 local statusbuttons     = require("widget.control_center.components.statusbuttons")
+local music             = require("widget.control_center.components.music")
 
 screen.connect_signal("request::desktop_decoration", function(s)
   s.control_center = wibox ({
     shape     = user.style == "rounded" and helpers.rrect(15) or user.style == "semi-rounded" and helpers.rrect(10),
-    width     = dpi(450),
+    width     = dpi(470),
     height    = dpi(700),
     bg        = beautiful.bg_dark,
     ontop     = true,
@@ -28,6 +29,11 @@ screen.connect_signal("request::desktop_decoration", function(s)
     },
     {
       statusbuttons(s),
+      margins = { top = dpi(20), bottom = dpi(0), left = dpi(20), right = dpi(20) },
+      widget = wibox.container.margin,
+    },
+    {
+      music(s),
       margins = dpi(20),
       widget = wibox.container.margin,
     },

@@ -28,13 +28,11 @@ local function gettasklist(s)
             awful.button({ }, 4, function() awful.client.focus.byidx(-1) end),
             awful.button({ }, 5, function() awful.client.focus.byidx( 1) end),
         },
-        layout= {
+        layout = {
             spacing = dpi(user.spacing),
             layout  = user.bar_type == "vertical" and wibox.layout.fixed.vertical or wibox.layout.fixed.horizontal
         },
-        style = {
-            shape = user.style == "rounded" and gears.shape.circle or user.style == "semi-rounded" and helpers.rrect(10) or gears.shape.rectangle
-        },
+        style = { shape = gears.shape.circle },
         widget_template = {
             {
                 {

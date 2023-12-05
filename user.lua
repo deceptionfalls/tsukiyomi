@@ -25,7 +25,7 @@ _U.battery_enabled    = true
 -- WARNING: this only works with the floating layout, it will break everything else
 -- requires Nemo as your file manager, plus some setup regarding Nemo: learn more about it on
 -- https://star.is-a.dev/blog/icons
-_U.desktop_icon = true
+_U.desktop_icon = false
 
 ---------------------------------------------
 -- Apps
@@ -51,15 +51,18 @@ _U.files_cli    = "ranger"
 -- Turn on/off music related decorations and signals
 _U.music_enabled      = true
 
+-- Music player to send play/pause/toggle signals to
+_U.music_player       = "spotify"
+
 ---------------------------------------------
 -- Awesome related
 ---------------------------------------------
 
 _U.layouts      = {
-  -- awful.layout.suit.tile,
+  awful.layout.suit.tile,
   -- awful.layout.suit.spiral.dwindle,
-  -- awful.layout.suit.max,
-  awful.layout.suit.floating,
+  awful.layout.suit.max,
+  -- awful.layout.suit.floating,
   -- awful.layout.suit.tile.left,
   -- awful.layout.suit.tile.bottom,
   -- awful.layout.suit.tile.top,
@@ -71,7 +74,7 @@ _U.layouts      = {
   -- awful.layout.suit.corner.nw,
 }
 
-_U.tags         = { '1', '2', '3', '4', '5' }
+_U.tags         = { '1', '2', '3', '4' }
 
 ---------------------------------------------
 -- Titlebars
@@ -97,9 +100,6 @@ _U.bar_type     = "horizontal"
 -- Position of the bar:
 -- bottom, top, left, right
 _U.bar_pos      = "top"
-
--- Don't, looks bad, just don't
-_U.transparent_bar = false
 
 ---------------------------------------------
 -- Dock
@@ -129,30 +129,21 @@ _U.spacing      = 8
 
 -- Inner and outer gaps
 _U.inner_gaps   = 3
-_U.outer_gaps   = 15
-
----------------------------------------------
--- UI Style
----------------------------------------------
-
--- Style of UI elements and windows 
--- affects corner radius, visual style of the bar, etc
--- sharp, rounded, semi-rounded
-_U.style        = "rounded"
+_U.outer_gaps   = 8
 
 ---------------------------------------------
 -- Color and themes
 ---------------------------------------------
 
 -- Available colorschemes:
--- biscuit, sakura, oxocarbon, camellia, adwaita, latte, fullerene, stardew, solarized, chi-tsuki, nymph
-_U.colorscheme   = "biscuit"
+-- biscuit, sakura, oxocarbon, camellia, adwaita, latte, fullerene, stardew, solarized
+_U.colorscheme   = "camellia"
 
 -- Dictates color of homeicon, active tag, active border, etc.
 -- Available accent colors:
 -- white, red, orange, yellow, green, cyan, lightblue, blue, magenta, purple
 -- defaults to "white" if nil
-_U.accent        = "green"
+_U.accent        = "red"
 
 -- Available icons:
 -- cookie, cookie_small, moon, star, awm
@@ -168,8 +159,8 @@ _U.fontsize      = "14"
 _U.icon_theme    = home .. ".icons/Colloid"
 
 -- Image related
-_U.avatar        = home .. 'Pictures/Anime/etc/5968c154f23d649bbddfa85f41e0df13.jpg'
-_U.wallpaper     = home .. 'Wallpapers/walls-main/custom/42.jpg'
+_U.avatar        = home .. 'Pictures/Anime/gojo/9f14e7384844b59079d5f053a3af0d93.jpg'
+-- _U.wallpaper     = home .. 'Wallpapers/solarized-dusk.png'
 
 _U.screenshotdir = home .. 'Pictures/Screenshots/'
 

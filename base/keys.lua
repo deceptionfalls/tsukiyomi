@@ -10,7 +10,10 @@ local modkey         = user.modkey
 local modkey2        = user.modkey2
 
 require("awful.autofocus")
-require("scripts.screenshot")
+require("signals.screenshot")
+
+local loop_modes = {"none", "playlist", "track"}
+local current_loop_mode = 1  -- Start with "loop none"
 
 awful.keyboard.append_global_keybindings({
     -- General
@@ -240,23 +243,38 @@ if user.music_enabled == true then
       -- Music Control
       awful.key(
         { modkey }, "u", function ()
-          awful.spawn.with_shell("playerctl --player=mpd previous")
+          awful.spawn.with_shell("playerctl --player=" .. user.music_player .. " previous")
         end,
         { description = "Previous song", group = "Music" }
       ),
 
       awful.key(
         { modkey }, "i", function ()
-          awful.spawn.with_shell("playerctl --player=mpd play-pause")
+          awful.spawn.with_shell("playerctl --player=" .. user.music_player .. " play-pause")
         end,
         { description = "Toggle playback", group = "Music" }
       ),
 
       awful.key(
         { modkey }, "o", function ()
-          awful.spawn.with_shell("playerctl --player=mpd next")
+          awful.spawn.with_shell("playerctl --player=" .. user.music_player .. " next")
         end,
         { description = "Next song", group = "Music" }
+      ),
+
+      awful.key(
+        { modkey }, "y", function ()
+          awful.spawn.with_shell("playerctl --player=" .. user.music_player .. " shuffle toggle")
+        end,
+        { description = "Toggle shuffle", group = "Music" }
+      ),
+
+      awful.key(
+        { modkey }, "p", function ()
+          current_loop_mode = (current_loop_mode % #loop_modes) + 1
+          awful.spawn.with_shell("playerctl --player=" .. user.music_player .. " loop " .. loop_modes[current_loop_mode])
+        end,
+        { description = "Toggle loop mode", group = "Music" }
       ),
   })
 end

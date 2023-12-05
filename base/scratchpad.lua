@@ -29,9 +29,9 @@ local spad = bling.module.scratchpad {
     dont_focus_before_close = true,
 }
 
-local ncmpcpp = bling.module.scratchpad {
-    command = user.term_cmd .. "ncmpcpp -n ncmpcpp -e ncmpcpp",
-    rule = { instance = "ncmpcpp" },
+local music = bling.module.scratchpad {
+    command = "spotify",
+    rule = { instance = "spotify" },
     sticky = true,
     autoclose = true,
     floating = true,
@@ -53,6 +53,6 @@ local fileman = bling.module.scratchpad {
 
 awful.keyboard.append_global_keybindings({
     awful.key({ modkey }, "m", function() center(spad) end),
-    awful.key({ modkey }, "n", function() center(ncmpcpp) end),
+    awful.key({ modkey }, "n", function() center(music) end),
     awful.key({ modkey }, "b", function() center(fileman) end),
 })

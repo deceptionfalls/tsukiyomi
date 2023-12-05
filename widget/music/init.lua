@@ -45,7 +45,6 @@ local music_bar = wibox.widget {
 }
 
 local control_button_bg = beautiful.transparent
-local control_button_bg_hover = beautiful.bg_dark
 
 local control_button = function(c, symbol, color, size, on_click, on_right_click)
     local icon = wibox.widget{
@@ -74,13 +73,6 @@ local control_button = function(c, symbol, color, size, on_click, on_right_click
         awful.button({ }, 1, on_click),
         awful.button({ }, 3, on_right_click)
     ))
-
-    container:connect_signal("mouse::enter", function ()
-        button.bg = control_button_bg_hover
-    end)
-    container:connect_signal("mouse::leave", function ()
-        button.bg = control_button_bg
-    end)
 
     return container
 end
@@ -125,6 +117,7 @@ mpc:connect_signal("playback_status", function(_, playing, player_name)
         end
     end
 end)
+
 
 local music_create_decoration = function (c)
 

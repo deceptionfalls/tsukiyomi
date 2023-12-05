@@ -24,8 +24,7 @@ return function ()
       },
       fg         = beautiful.fg_normal,
       bg         = beautiful.bg_normal,
-      visible    = user.clock_vis,
-      shape      = user.style == "rounded" and helpers.rrect(50) or user.style == "semi-rounded" and helpers.rrect(10) or gears.shape.rectangle,
+      shape      = helpers.rrect(50),
       widget     = wibox.container.background,
   }
 
@@ -34,13 +33,13 @@ return function ()
         {
             {
                 format = '<b>%I</b>',
-                font   = user.font .. user.fontsize,
+                font   = beautiful.font,
                 halign = "center",
                 widget = wibox.widget.textclock
             },
             {
                 format = '<b>%M</b>',
-                font   = user.font .. user.fontsize,
+                font   = beautiful.font,
                 halign = "center",
                 widget = wibox.widget.textclock
             },
@@ -54,7 +53,7 @@ return function ()
     },
     fg      = beautiful.fg_normal,
     bg      = beautiful.bg_normal,
-    shape   = user.style == "rounded" and helpers.rrect(50) or user.style == "semi-rounded" and helpers.rrect(10) or gears.shape.rectangle,
+    shape   = helpers.rrect(50),
     widget  = wibox.container.background
   }
 

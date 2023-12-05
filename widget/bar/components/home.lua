@@ -40,7 +40,7 @@ return function ()
       widget = wibox.container.place
     },
     bg      = user.icon == "awm" and beautiful.bg_dark or beautiful.bg_normal,
-    shape   = user.style == "rounded" and gears.shape.circle or user.style == "semi-rounded" and helpers.rrect(10) or gears.shape.rectangle,
+    shape   = gears.shape.circle,
     widget  = wibox.container.background,
     buttons = {
       awful.button({}, 1, function()

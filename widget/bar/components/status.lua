@@ -1,12 +1,11 @@
 local wibox       = require("wibox")
 local awful       = require("awful")
 local beautiful   = require("beautiful")
-local gears       = require("gears")
 
 local dpi         = beautiful.xresources.apply_dpi
 local helpers     = require("helpers")
-local user        = require('user')
-local batstatus   = require('widget.bar.components.battery')
+local user        = require("user")
+local batstatus   = require("widget.bar.components.battery")
 
 return function ()
   local function status_widget(button)
@@ -59,14 +58,14 @@ return function ()
         margins = dpi(10),
         layout  = user.bar_type == "vertical" and wibox.layout.fixed.vertical or wibox.layout.fixed.horizontal
       },
-      left   = dpi(9),
+      left   = dpi(12),
       right  = dpi(9),
       top    = user.bar_type == "vertical" and dpi(9) or dpi(0),
       bottom = user.bar_type == "vertical" and dpi(9) or dpi(0),
       widget = wibox.container.margin
     },
     bg       = beautiful.bg_normal,
-    shape    = user.style == "rounded" and helpers.rrect(30) or user.style == "semi-rounded" and helpers.rrect(10) or gears.shape.rectangle,
+    shape    = helpers.rrect(30),
     widget   = wibox.container.background
   }
 

@@ -7,7 +7,7 @@ require('signals.tag')
 require('signals.volume')
 require('signals.network')
 require('signals.compositor')
--- require('signals.caffeine')
+require('signals.caffeine')
 
 if user.bluetooth_enabled then
   require('signals.bluetooth')

@@ -11,7 +11,7 @@ return function()
   local pfp = wibox.widget {
       widget        = wibox.widget.imagebox,
       image         = user.avatar,
-      clip_shape    = user.style == "rounded" and gears.shape.circle or user.style == "semi-rounded" and helpers.rrect(10) or gears.shape.rectangle,
+      clip_shape    = gears.shape.circle,
       resize        = true,
       valign        = "center",
       halign        = "center",

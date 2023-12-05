@@ -6,9 +6,10 @@ if user.desktop_icon == true then awful.spawn.once('nemo-desktop') end
 
 -- handle music shit
 if user.music_enabled == true then
-  awful.spawn.once('mpd')
+  if user.music_enabled == "mpd" then
+    awful.spawn.once('mpd')
+  end
   awful.spawn.once('mpDris2')
-  awful.spawn.once('clematis') -- rpc
 end
 
 awful.spawn.once('picom')

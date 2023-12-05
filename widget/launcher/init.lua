@@ -6,7 +6,7 @@ local user      = require('user')
 
 return {
 
-    shape                       = user.style == "rounded" and helpers.rrect(10),
+    shape                       = helpers.rrect(10),
 
     reset_on_hide               = false,
     save_history                = true,

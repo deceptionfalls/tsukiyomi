@@ -47,10 +47,9 @@ local batstatus = wibox.widget {
     },
     layout = wibox.layout.stack
   },
-  visible = user.battery_vis,
   bg      = beautiful.bg_dark,
   widget  = wibox.container.background,
-  shape   = user.style == "rounded" and helpers.rrect(2) or user.style == "semi-rounded" and helpers.rrect(10) or gears.shape.rectangle,
+  shape   = helpers.rrect(2),
 }
 
 local vbar_batstatus = wibox.widget {

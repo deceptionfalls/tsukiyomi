@@ -5,7 +5,7 @@ local status_old = -1
 
 local function emit_caffeine_status()
     awful.spawn.easy_async_with_shell(
-        "bash -c 'pgrep caffeinate'", function(stdout)
+        "bash -c 'pgrep xset'", function(stdout)
             local status    = stdout:match("%d+")
             local status_id = status and 0 or 1
 
@@ -18,14 +18,15 @@ local function emit_caffeine_status()
 end
 
 awesome.connect_signal('caffeine::toggle', function()
-    awful.spawn.easy_async("pgrep caffeinate", function(stdout)
+    awful.spawn.easy_async("pgrep xset", function(stdout)
         local is_running = stdout ~= ""
         if is_running then
-            awful.spawn("killall caffeinate")
+            awful.spawn("killall xset")
         else
-            awful.spawn("caffeinate sleep 9999999")
+            awful.spawn("xset s off")
+            awful.spawn("xset -dpms")
         end
-        awesome.emit_signal("signal::caffeine", not is_running)  -- Invert the status
+        awesome.emit_signal("signal::caffeine", not is_running)
     end)
 end)
 

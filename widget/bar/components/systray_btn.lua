@@ -18,6 +18,7 @@ return function()
           widget      = wibox.container.rotate
       },
       bg     = beautiful.bg_dark,
+      fg     = beautiful.bg_light,
       shape  = helpers.rrect(),
       widget = wibox.container.background,
       buttons = {

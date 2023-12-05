@@ -14,13 +14,8 @@ local function gettaglist(s)
     return awful.widget.taglist {
         screen = s,
         filter = awful.widget.taglist.filter.all,
-        style = {
-            shape = user.style == "rounded" and helpers.rrect(50) or user.style == "semi-rounded" and helpers.rrect(5) or gears.shape.rectangle,
-        },
-        layout = {
-            spacing = dpi(5),
-            layout  = wibox.layout.fixed.vertical,
-        },
+        style = { shape = helpers.rrect(50) },
+        layout = { spacing = dpi(5), layout  = wibox.layout.fixed.vertical },
         buttons = {
             awful.button({}, 1, function (t)
                 t:view_only()

@@ -28,7 +28,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
             widget  = wibox.container.margin
         },
         bg      = beautiful.bg_normal,
-        shape   = user.style == "rounded" and helpers.rrect(50) or user.style == "semi-rounded" and helpers.rrect(10) or gears.shape.rectangle,
+        shape   = helpers.rrect(50),
         widget  = wibox.container.background
     }
     helpers.hoverCursor(taglist_v)
@@ -41,7 +41,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
                 widget  = wibox.container.margin,
             },
             bg          = beautiful.bg_normal,
-            shape       = user.style == "rounded" and helpers.rrect(50) or user.style == "semi-rounded" and helpers.rrect(10) or gears.shape.rectangle,
+            shape       = helpers.rrect(50),
             widget      = wibox.container.background
           },
           direction   = "east",
@@ -57,8 +57,8 @@ screen.connect_signal("request::desktop_decoration", function(s)
       screen         = s,
       height         = user.bar_type == "vertical" and dpi(750) or dpi(30),
       border_width   = dpi(10),
-      border_color   = user.transparent_bar == true and beautiful.transparent or beautiful.bg_dark,
-      bg             = user.transparent_bar == true and beautiful.transparent or beautiful.bg_dark,
+      border_color   = beautiful.bg_dark,
+      bg             = beautiful.bg_dark,
       widget         = {
         {
           home(s),
