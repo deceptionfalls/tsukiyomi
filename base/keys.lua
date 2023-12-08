@@ -173,7 +173,7 @@ awful.keyboard.append_global_keybindings({
       { modkey }, "e", function ()
         awful.spawn(user.files)
       end,
-      { description = "Spawn chatapp", group = "Apps" }
+      { description = "Spawn file-explorer", group = "Apps" }
     ),
 
     awful.key(
